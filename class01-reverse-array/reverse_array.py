@@ -4,7 +4,7 @@ test1 = [1,2,3,4,5,6,7,8,9]
 test2 = ['a','b','c','d']
 test3 =[1,'a',2,'b', '#', x]
 
-def reverseArray(arr):
+def reverse_array(arr):
     length = 0
 
     for element in arr:
@@ -18,6 +18,6 @@ def reverseArray(arr):
         
     return new_arr
 
-print(reverseArray(test1))
-print(reverseArray(test2))
-print(reverseArray(test3))
+print(reverse_array(test1))
+print(reverse_array(test2))
+print(reverse_array(test3))
