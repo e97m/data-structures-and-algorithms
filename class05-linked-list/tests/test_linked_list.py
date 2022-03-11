@@ -1,4 +1,4 @@
-from class05_linked_list.linked_list import Node, LinkedList
+from class05_linked_list.linked_list import Node, LinkedList, DNode, DoublyLinkedList
 import pytest
 
 def test_empty():
@@ -43,6 +43,27 @@ def test_includes_false(my_ll):
     actual = my_ll.includes('test')
     expected = False
     assert actual == expected
+
+def test_dll_empty():
+    actual = DoublyLinkedList()
+    expected = 'The linked-list is empty'
+    assert str(actual) == str(expected)
+
+def test_dll_insert_one():
+    dll = DoublyLinkedList()
+    dll.insert('Emad')
+    actual = dll
+    expected = '{ Emad } -> NULL'
+    assert str(actual) == str(expected)
+
+def test_dll_insert_two():
+    dll = DoublyLinkedList()
+    dll.insert('Emad')
+    dll.insert('Anas')
+    actual = dll
+    expected = '{ Anas } -> { Emad } -> NULL'
+    assert str(actual) == str(expected)
+
 
 
 @pytest.fixture
