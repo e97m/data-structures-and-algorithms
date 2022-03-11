@@ -24,4 +24,6 @@ Singly linked list has three methods:
 
  This application has been created as a solution to the code challenge 5. You can test the file by running (pytest), I recommend you install (poetry) package before that.
 
-https://github.com/e97m/data-structures-and-algorithms/pull/6
+singly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/6
+
+doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/7
