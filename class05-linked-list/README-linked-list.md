@@ -10,7 +10,7 @@ Overview:
 
 This application creates a linked list, which is a list of nodes, each node has a value and a pointer to the next node if exists. The benefit of this over ordinary list is the freedom in creation location inside the memory.
 
-This linked list has three methods:
+Singly linked list has three methods:
 
  - `insert`: to add a node to the head of the linked list. The time complexity of it is O(1)
 
@@ -18,8 +18,10 @@ This linked list has three methods:
 
  - `includes`: to search for a node's value in the linked list. The time complexity of it is O(n)
 
+ Doubly linked list has one method, which is `insert` to add a node to the head of the linked list. The time complexity of it is O(1)
+
  <br>
 
  This application has been created as a solution to the code challenge 5. You can test the file by running (pytest), I recommend you install (poetry) package before that.
 
-https://github.com/e97m/data-structures-and-algorithms/pull/6 
+https://github.com/e97m/data-structures-and-algorithms/pull/6
