@@ -8,14 +8,18 @@ Python Verstion: 3.9.5
 
 Overview:
 
-This application creats a linked list. It has three methods:
+This application creates a linked list, which is a list of nodes, each node has a value and a pointer to the next node if exists. The benefit of this over ordinary list is the freedom in creation location inside the memory.
 
- - `inserst`: to add a node to the head of the linked list.
+This linked list has three methods:
 
- - `append`: to add a node to the end of the linked list.
+ - `insert`: to add a node to the head of the linked list. The time complexity of it is O(1)
 
- - `includes`: to search for a node's value in the linked list.
+ - `append`: to add a node to the end of the linked list. The time complexity of it is O(n)
+
+ - `includes`: to search for a node's value in the linked list. The time complexity of it is O(n)
 
  <br>
+
+ This application has been created as a solution to the code challenge 5. You can test the file by running (pytest), I recommend you install (poetry) package before that.
 
 https://github.com/e97m/data-structures-and-algorithms/pull/6 
