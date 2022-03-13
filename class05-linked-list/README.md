@@ -27,4 +27,14 @@ Singly linked list has three methods:
 singly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/6
 
 doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/7
-.
+
+- [x] Create a singly node class
+- [x] Create a singly linked list class
+- [x] Create insert method to the linked list class
+- [x] Create includes method to the linked list class
+- [x] Create to string method (__str__) to the linked list class
+- [x] Handle possible errors
+- [x] Create a doubly node class
+- [x] Create a doubly linked list class
+- [x] Create insert method to the linked list class
+- [x] Create a test file
