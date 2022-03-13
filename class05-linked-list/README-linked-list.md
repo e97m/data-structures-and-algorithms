@@ -27,3 +27,4 @@ Singly linked list has three methods:
 singly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/6
 
 doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/7
+.
