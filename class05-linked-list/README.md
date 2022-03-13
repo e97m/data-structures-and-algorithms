@@ -28,13 +28,13 @@ singly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/
 
 doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/7
 
-- [x] Creat a singly node class
-- [x] Creat a singly linked list class
-- [x] Creat insert method to the linked list class
-- [x] Creat includes method to the linked list class
-- [x] Creat to string method (__str__) to the linked list class
+- [x] Create a singly node class
+- [x] Create a singly linked list class
+- [x] Create insert method to the linked list class
+- [x] Create includes method to the linked list class
+- [x] Create to string method (__str__) to the linked list class
 - [x] Handle possible errors
-- [x] Creat a doubly node class
-- [x] Creat a doubly linked list class
-- [x] Creat insert method to the linked list class
-- [x] Creat a test file
+- [x] Create a doubly node class
+- [x] Create a doubly linked list class
+- [x] Create insert method to the linked list class
+- [x] Create a test file
