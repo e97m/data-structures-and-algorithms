@@ -2,27 +2,25 @@ from class05_linked_list.linked_list import Node, LinkedList, DNode, DoublyLinke
 import pytest
 
 def test_empty():
-    actual = LinkedList()
+    actual = str(LinkedList())
     expected = 'The linked-list is empty'
-    assert str(actual) == str(expected)
+    assert actual == expected
 
 def test_insert_one():
     emad = Node('Emad')
     ll = LinkedList()
     ll.insert(emad)
-    actual = ll
+    actual = str(ll)
     expected = '{ Emad } -> NULL'
-    # print (type(actual))
-    # print (type(expected))
-    assert str(actual) == str(expected)
+    assert actual == expected
 
 def test_insert_two():
     ll = LinkedList()
     ll.insert(Node('Emad'))
     ll.insert(Node('Anas'))
-    actual = ll
+    actual = str(ll)
     expected = '{ Anas } -> { Emad } -> NULL'
-    assert str(actual) == str(expected)
+    assert actual == expected
 
 def test_includes_head(my_ll):
     actual = my_ll.includes('Yazan')
@@ -45,25 +43,24 @@ def test_includes_false(my_ll):
     assert actual == expected
 
 def test_dll_empty():
-    actual = DoublyLinkedList()
+    actual = str(DoublyLinkedList())
     expected = 'The linked-list is empty'
-    assert str(actual) == str(expected)
+    assert actual == expected
 
 def test_dll_insert_one():
     dll = DoublyLinkedList()
     dll.insert('Emad')
-    actual = dll
+    actual = str(dll)
     expected = '{ Emad } -> NULL'
-    assert str(actual) == str(expected)
+    assert actual == expected
 
 def test_dll_insert_two():
     dll = DoublyLinkedList()
     dll.insert('Emad')
     dll.insert('Anas')
-    actual = dll
+    actual = str(dll)
     expected = '{ Anas } -> { Emad } -> NULL'
-    assert str(actual) == str(expected)
-
+    assert actual == expected
 
 
 @pytest.fixture
