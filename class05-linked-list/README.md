@@ -51,20 +51,20 @@ PR: https://github.com/e97m/data-structures-and-algorithms/pull/10
 
 <br>
 
-# White Boards
+# WhiteBoards
 
 ## append
 
-![append white board]()
+![append whiteboard](./imgs/LL.append.png)
 
 <br>
 
 ## insret_after
 
-![insert_after white board]()
+![insert_after whiteboard](./imgs/LL.insert-after.png)
 
 <br>
 
 ## insret_before
 
-![insert_before white board]()
+![insert_before whiteboard](./imgs/LL.insert-before.png)

@@ -53,7 +53,6 @@ class LinkedList:
         A method calls the class (Node) to create a node from the input value, then add that node before a specific value in the linked list. O(n)
         Input: value , new_value (any type except boolean) 
         '''
-        
         new_node = Node(new_value)
         if self.head is None:
             return 'The linked-list is empty'
