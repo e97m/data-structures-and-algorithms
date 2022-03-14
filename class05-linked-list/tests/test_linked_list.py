@@ -7,17 +7,16 @@ def test_empty():
     assert actual == expected
 
 def test_insert_one():
-    emad = Node('Emad')
     ll = LinkedList()
-    ll.insert(emad)
+    ll.insert('Emad')
     actual = str(ll)
     expected = '{ Emad } -> NULL'
     assert actual == expected
 
 def test_insert_two():
     ll = LinkedList()
-    ll.insert(Node('Emad'))
-    ll.insert(Node('Anas'))
+    ll.insert('Emad')
+    ll.insert('Anas')
     actual = str(ll)
     expected = '{ Anas } -> { Emad } -> NULL'
     assert actual == expected
@@ -42,6 +41,68 @@ def test_includes_false(my_ll):
     expected = False
     assert actual == expected
 
+
+
+def test_append():
+    ll = LinkedList()
+    ll.append('Emad')
+    ll.append('Anas')
+    actual = str(ll)
+    expected = '{ Emad } -> { Anas } -> NULL'
+    assert actual == expected
+
+def test_insert_after_head(my_ll):
+    my_ll.insert_after('Yazan', 'after head')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { after head } -> { Anas } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_after_tail(my_ll):
+    my_ll.insert_after('Anas', 'in the mid')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> { in the mid } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_after_tail(my_ll):
+    my_ll.insert_after('Emad', 'after tail')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> { Emad } -> { after tail } -> NULL'
+    assert actual == expected
+
+def test_insert_after_something_outside_list(my_ll):
+    actual = my_ll.insert_after('111', 'insertion')
+    expected = 'This value is not exist in this linked list!'
+    assert actual == expected
+
+def test_insert_before_head(my_ll):
+    my_ll.insert_before('Yazan', 'after head')
+    actual = str(my_ll)
+    expected = '{ after head } -> { Yazan } -> { Anas } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_before_tail(my_ll):
+    my_ll.insert_before('Anas', 'in the mid')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { in the mid } -> { Anas } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_before_tail(my_ll):
+    my_ll.insert_before('Emad', 'before tail')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> { before tail } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_brfore_something_outside_list(my_ll):
+    actual = my_ll.insert_before('111', 'insertion')
+    expected = 'This value is not exist in this linked list!'
+    assert actual == expected
+
+
+
+# **************************
+#         streach
+# **************************
+
 def test_dll_empty():
     actual = str(DoublyLinkedList())
     expected = 'The linked-list is empty'
@@ -63,10 +124,36 @@ def test_dll_insert_two():
     assert actual == expected
 
 
+
+def test_delete_head(my_ll):
+    my_ll.delete_node('Yazan')
+    actual = str(my_ll)
+    expected = '{ Anas } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_delete_mid(my_ll):
+    my_ll.delete_node('Anas')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_delete_tail(my_ll):
+    my_ll.delete_node('Emad')
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> NULL'
+    assert actual == expected
+
+def test_delete_something_outside_list(my_ll):
+    actual = my_ll.delete_node('111')
+    expected = 'This value is not exist in this linked list!'
+    assert actual == expected
+
+
+
 @pytest.fixture
 def my_ll():
     ll = LinkedList()
-    ll.insert(Node('Emad'))
-    ll.insert(Node('Anas'))
-    ll.insert(Node('Yazan'))
+    ll.insert('Emad')
+    ll.insert('Anas')
+    ll.insert('Yazan')
     return ll
