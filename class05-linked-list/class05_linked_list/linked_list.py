@@ -1,4 +1,6 @@
 
+from tabnanny import check
+
 
 class Node:
     '''
@@ -46,6 +48,78 @@ class LinkedList:
             old_head = self.head
             self.head = new_node
             self.head.next = old_head
+
+    def insert_before(self, value, new_value):
+        '''
+        A method to add new value before a value in the linked list. O(n)
+        Input: value (value), new_value (node)
+        '''
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            if self.head.value == value:
+                self.insert(new_value)
+                return
+            current = self.head
+            check = True
+            while current is not None:
+                if current.next is None:    # To avoid error when it trys to access the (next) attribute of the last node
+                    break
+                if current.next.value == value:
+                    old_after = current.next
+                    current.next = new_value
+                    new_value.next = old_after
+                    check = False
+                    break
+                current = current.next
+            if check == True: 
+                return 'This value is not exist in this linked list!'
+
+    def insert_after(self, value, new_value):
+        '''
+        A method to add new value after a value in the linked list. O(n)
+        Input: value(vlaue), new_value(node)
+        '''
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            current = self.head
+            check = True
+            while current is not None:
+                if current.value == value:
+                    old_after = current.next
+                    current.next = new_value
+                    new_value.next = old_after
+                    check = False
+                    break
+                current = current.next
+            if check == True:
+                return 'This value is not exist in this linked list!'
+                     
+
+    def delete_node(self, value):
+        '''
+        A method to delete a node from the linked list. O(n)
+        Input: the value of the node to delete
+        '''
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            if self.head.value == value:
+                self.head = self.head.next
+                return
+            current = self.head
+            check = True
+            while current is not None:
+                if current.next is None:    # To avoid error when it trys to access the (next) attribute of the last node
+                    break
+                if current.next.value == value:
+                    current.next = current.next.next
+                    check = False
+                    break
+                current = current.next
+            if check == True:
+                return 'This value is not exist in this linked list!'
 
     def includes(self, wanted_value):  #O(n)
         '''
@@ -128,18 +202,32 @@ class DoublyLinkedList:
 
 if __name__ == '__main__':
     ll = LinkedList()
-    emad = Node('Emad')     #node 1
+    emad = Node('Emad')     #node 1, this could be added to the method code as it is done in doubly linked list methods
     anas = Node('Anas')     #node 2
     yazan = Node('Yazan')   #node 3
     ll.append(emad)
-    ll.append(Node(True))
+    ll.append(anas)
+    ll.append(Node('test'))
     ll.insert(Node(1))
-    ll.insert(Node('test'))
+    ll.insert(yazan)
+    ll.insert_after('Emad', Node('after emad'))
+    ll.insert_before('Emad', Node('before emad'))
+    ll.insert_before('Yazan', Node('the head'))
+    ll.insert_before('test', Node('the end'))
+    ll.delete_node('Emad')
+    ll.delete_node('the head')
+    ll.delete_node('test')
+
+    
+    print(ll.delete_node('111'))
+    print(ll.insert_before('111', Node('the')))
+    print(ll.insert_after('111', Node('after')))
+
 
     print(ll)
-    print(ll.includes('Emad'))
-    print(ll.includes('An'))
+    # print(ll.includes('Emad'))
+    # print(ll.includes('An'))
 
     dll = DoublyLinkedList()
     dll.insert('this is an easy insert')
-    print(dll)
+    # print(dll)

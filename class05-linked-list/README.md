@@ -24,9 +24,7 @@ Singly linked list has three methods:
 
  This application has been created as a solution to the code challenge 5. You can test the file by running (pytest), I recommend you install (poetry) package before that.
 
-singly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/6
-
-doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/7
+PR: https://github.com/e97m/data-structures-and-algorithms/pull/10
 
 - [x] Create a singly node class
 - [x] Create a singly linked list class
@@ -38,3 +36,7 @@ doubly linked list: https://github.com/e97m/data-structures-and-algorithms/pull/
 - [x] Create a doubly linked list class
 - [x] Create insert method to the linked list class
 - [x] Create a test file
+- [] Create (insert before) method to the linked list classes
+- [] Create (insert after) method to the linked list classes
+- [] Create (delete) method to the linked list classes
+- [] Update the test file
