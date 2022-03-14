@@ -7,17 +7,16 @@ def test_empty():
     assert actual == expected
 
 def test_insert_one():
-    emad = Node('Emad')
     ll = LinkedList()
-    ll.insert(emad)
+    ll.insert('Emad')
     actual = str(ll)
     expected = '{ Emad } -> NULL'
     assert actual == expected
 
 def test_insert_two():
     ll = LinkedList()
-    ll.insert(Node('Emad'))
-    ll.insert(Node('Anas'))
+    ll.insert('Emad')
+    ll.insert('Anas')
     actual = str(ll)
     expected = '{ Anas } -> { Emad } -> NULL'
     assert actual == expected
@@ -46,55 +45,55 @@ def test_includes_false(my_ll):
 
 def test_append():
     ll = LinkedList()
-    ll.append(Node('Emad'))
-    ll.append(Node('Anas'))
+    ll.append('Emad')
+    ll.append('Anas')
     actual = str(ll)
     expected = '{ Emad } -> { Anas } -> NULL'
     assert actual == expected
 
 def test_insert_after_head(my_ll):
-    my_ll.insert_after('Yazan', Node('after head'))
+    my_ll.insert_after('Yazan', 'after head')
     actual = str(my_ll)
     expected = '{ Yazan } -> { after head } -> { Anas } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_after_tail(my_ll):
-    my_ll.insert_after('Anas', Node('in the mid'))
+    my_ll.insert_after('Anas', 'in the mid')
     actual = str(my_ll)
     expected = '{ Yazan } -> { Anas } -> { in the mid } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_after_tail(my_ll):
-    my_ll.insert_after('Emad', Node('after tail'))
+    my_ll.insert_after('Emad', 'after tail')
     actual = str(my_ll)
     expected = '{ Yazan } -> { Anas } -> { Emad } -> { after tail } -> NULL'
     assert actual == expected
 
 def test_insert_after_something_outside_list(my_ll):
-    actual = my_ll.insert_after('111', Node('insertion'))
+    actual = my_ll.insert_after('111', 'insertion')
     expected = 'This value is not exist in this linked list!'
     assert actual == expected
 
 def test_insert_before_head(my_ll):
-    my_ll.insert_before('Yazan', Node('after head'))
+    my_ll.insert_before('Yazan', 'after head')
     actual = str(my_ll)
     expected = '{ after head } -> { Yazan } -> { Anas } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_before_tail(my_ll):
-    my_ll.insert_before('Anas', Node('in the mid'))
+    my_ll.insert_before('Anas', 'in the mid')
     actual = str(my_ll)
     expected = '{ Yazan } -> { in the mid } -> { Anas } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_before_tail(my_ll):
-    my_ll.insert_before('Emad', Node('before tail'))
+    my_ll.insert_before('Emad', 'before tail')
     actual = str(my_ll)
     expected = '{ Yazan } -> { Anas } -> { before tail } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_brfore_something_outside_list(my_ll):
-    actual = my_ll.insert_before('111', Node('insertion'))
+    actual = my_ll.insert_before('111', 'insertion')
     expected = 'This value is not exist in this linked list!'
     assert actual == expected
 
@@ -154,7 +153,7 @@ def test_delete_something_outside_list(my_ll):
 @pytest.fixture
 def my_ll():
     ll = LinkedList()
-    ll.insert(Node('Emad'))
-    ll.insert(Node('Anas'))
-    ll.insert(Node('Yazan'))
+    ll.insert('Emad')
+    ll.insert('Anas')
+    ll.insert('Yazan')
     return ll
