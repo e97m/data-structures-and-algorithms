@@ -9,6 +9,7 @@ class Node:
     def __init__(self,value):
         self.value = value
         self.next = None
+        self.index = None
 
 
 class LinkedList:
@@ -21,11 +22,68 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def length(self):
+        '''
+        A method to canculate the length of the linked list
+        Input: nothing
+        Output: length(int)
+        '''
+        if self.head is None:
+            return 0
+        else:
+            counter = 0
+            current = self.head
+            while current is not None:
+                counter += 1
+                current = current.next
+        return counter
+
+    def index(self):
+        '''
+        A method to (create/over write) an index for each node then append them to a list
+        Input: nothing
+        Output: list of indexes
+        '''
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            list_of_index = []
+            counter = 0
+            current = self.head
+            while current is not None:
+                current.index = counter
+                list_of_index.append(current.index)
+                counter += 1
+                current = current.next
+        return list_of_index
+
+    def index_reversed(self):
+        '''
+        A method to (create/over write) a reversed index for each node then append them to a list
+        Input: nothing
+        Output: list of revered indexes
+        '''
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            length = self.length()
+            list_of_index = []
+            counter = 1
+            current = self.head
+            while current is not None:
+                current.index = length - counter
+                list_of_index.append(current.index)
+                counter += 1
+                current = current.next
+        return list_of_index
+
     def append(self, new_value):    # O(n)
         '''
         A method calls the class (Node) to create a node from the input value, then add that node to the end of the linked list. o(n)
         Input: new value (any type)
         '''
+        if isinstance(new_value, Node):
+            return 'please enter a value, it will be converted to Node automaticly'
         new_node = Node(new_value)
         if self.head is None:
             self.head = new_node
@@ -40,6 +98,8 @@ class LinkedList:
         A method calls the class (Node) to create a node from the input value, then add that node to the head of the linked list. O(1)
         Input: new value (any type)
         '''
+        if isinstance(new_value, Node):
+            return 'please enter a value, it will be converted to Node automaticly'
         new_node = Node(new_value)
         if self.head is None:
             self.head = new_node
@@ -53,6 +113,8 @@ class LinkedList:
         A method calls the class (Node) to create a node from the input value, then add that node before a specific value in the linked list. O(n)
         Input: value , new_value (any type except boolean) 
         '''
+        if isinstance(new_value, Node):
+            return 'please enter a value, it will be converted to Node automaticly'
         new_node = Node(new_value)
         if self.head is None:
             return 'The linked-list is empty'
@@ -80,6 +142,8 @@ class LinkedList:
         A method calls the class (Node) to create a node from the input value, then add that node after a specific value in the linked list. O(n)
         Input: value, new_value (any type except boolean)
         '''
+        if isinstance(new_value, Node):
+            return 'please enter a value, it will be converted to Node automaticly'
         new_node = Node(new_value)
         if self.head is None:
             return 'The linked-list is empty'
@@ -130,13 +194,44 @@ class LinkedList:
         if self.head is None:
             return 'The linked-list is empty'
         else:
-            output = False
             current = self.head
             while current is not None:
                 if current.value == wanted_value:   # if you want to make a node with a boolean value use try except to handle errors insted of if statument
-                    output = True
+                    return True
                 current = current.next
-            return output
+            return False
+
+    def kth_from_end(self, k):
+        '''
+        A method to return the value of an index from the tail of the linked list
+        Input: kth position from the tail (int)
+        Output: the value of the wanted index
+        '''
+        self.index_reversed()
+        current = self.head
+        while current is not None:
+            if current.index == k:   
+                return current.value
+            current = current.next
+        return 'Index not found!'
+
+    def find_mid(self):
+        '''
+        A method to find the middle node in the linked list
+        Input: nothing
+        Outpu: the value of the middle node
+        '''
+        length = self.length()
+        self.index()
+        mid_index = (length-1)//2
+        if self.head is None:
+            return 'The linked-list is empty'
+        else:
+            current = self.head
+            while current is not None:
+                if current.index == mid_index:
+                    return current.value
+                current = current.next
 
     def __str__(self):
         output = ''
@@ -218,18 +313,20 @@ if __name__ == '__main__':
     ll.delete_node('the head')
     ll.delete_node('test')
 
-    # print(ll.append('not node HAHAHA'))
-
+    # print(ll.append(Node('node HAHAHA')))
 
     # print(ll.delete_node('111'))
     # print(ll.insert_before('111', Node('the')))
-    # print(ll.insert_after('111', Node('after')))
-
+    # print(ll.insert_after('111', 'after'))
 
     print(ll)
+
     # print(ll.includes('Emad'))
     # print(ll.includes('An'))
 
-    dll = DoublyLinkedList()
-    dll.insert('this is an easy insert')
+    # dll = DoublyLinkedList()
+    # dll.insert('this is an easy insert')
     # print(dll)
+
+    # print (ll.kth_from_end(10))
+    print(ll.find_mid())
