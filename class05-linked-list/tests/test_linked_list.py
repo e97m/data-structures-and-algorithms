@@ -97,6 +97,20 @@ def test_insert_brfore_something_outside_list(my_ll):
     expected = 'This value is not exist in this linked list!'
     assert actual == expected
 
+def test_kth_from_end_2(my_ll):
+    actual = my_ll.kth_from_end(2)
+    expected = 'Yazan'
+    assert actual == expected
+
+def test_kth_from_end_0(my_ll):
+    actual = my_ll.kth_from_end(0)
+    expected = 'Emad'
+    assert actual == expected
+
+def test_kth_from_end_outside_list(my_ll):
+    actual = my_ll.kth_from_end(5)
+    expected = 'Index not found!'
+    assert actual == expected
 
 
 # **************************
@@ -147,6 +161,19 @@ def test_delete_something_outside_list(my_ll):
     actual = my_ll.delete_node('111')
     expected = 'This value is not exist in this linked list!'
     assert actual == expected
+
+def test_find_mid_odd(my_ll):
+    actual = my_ll.find_mid()
+    expected = 'Anas'
+    assert actual == expected
+
+def test_find_mid_even(my_ll):
+    ll = LinkedList()
+    ll.append('test')
+    actual = my_ll.find_mid()
+    expected = 'Anas'
+    assert actual == expected
+
 
 
 
