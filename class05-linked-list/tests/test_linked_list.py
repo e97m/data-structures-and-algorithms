@@ -6,6 +6,11 @@ def test_empty():
     expected = 'The linked-list is empty'
     assert actual == expected
 
+def test_insert_Node(my_ll):
+    actual = my_ll.insert(Node('Emad'))
+    expected = 'please enter a value, it will be converted to Node automaticly'
+    assert actual == expected
+
 def test_insert_one():
     ll = LinkedList()
     ll.insert('Emad')
@@ -51,6 +56,11 @@ def test_append():
     expected = '{ Emad } -> { Anas } -> NULL'
     assert actual == expected
 
+def test_append_Node(my_ll):
+    actual = my_ll.append(Node('Emad'))
+    expected = 'please enter a value, it will be converted to Node automaticly'
+    assert actual == expected
+
 def test_insert_after_head(my_ll):
     my_ll.insert_after('Yazan', 'after head')
     actual = str(my_ll)
@@ -72,6 +82,11 @@ def test_insert_after_tail(my_ll):
 def test_insert_after_something_outside_list(my_ll):
     actual = my_ll.insert_after('111', 'insertion')
     expected = 'This value is not exist in this linked list!'
+    assert actual == expected
+
+def test_insert_after_Node(my_ll):
+    actual = my_ll.insert_after('Emad' ,Node('Emad'))
+    expected = 'please enter a value, it will be converted to Node automaticly'
     assert actual == expected
 
 def test_insert_before_head(my_ll):
@@ -97,12 +112,17 @@ def test_insert_brfore_something_outside_list(my_ll):
     expected = 'This value is not exist in this linked list!'
     assert actual == expected
 
-def test_kth_from_end_2(my_ll):
+def test_insert_before_Node(my_ll):
+    actual = my_ll.insert_before('Emad' ,Node('Emad'))
+    expected = 'please enter a value, it will be converted to Node automaticly'
+    assert actual == expected
+
+def test_kth_from_end_last_index(my_ll):
     actual = my_ll.kth_from_end(2)
     expected = 'Yazan'
     assert actual == expected
 
-def test_kth_from_end_0(my_ll):
+def test_kth_from_end_first_index(my_ll):
     actual = my_ll.kth_from_end(0)
     expected = 'Emad'
     assert actual == expected
@@ -112,9 +132,14 @@ def test_kth_from_end_outside_list(my_ll):
     expected = 'Index not found!'
     assert actual == expected
 
+def test_kth_from_end_empty():
+    ll = LinkedList()
+    actual = ll.kth_from_end(1)
+    expected = 'The linked-list is empty'
+    assert actual == expected
 
 # **************************
-#         streach
+# *        streach         *
 # **************************
 
 def test_dll_empty():
@@ -136,6 +161,13 @@ def test_dll_insert_two():
     actual = str(dll)
     expected = '{ Anas } -> { Emad } -> NULL'
     assert actual == expected
+
+def test_dll_insert_Dnode():
+    dll = DoublyLinkedList()
+    dll.insert(DNode('Emad'))
+    actual = str(dll)
+    expected = 'please enter a value, it will be converted to (DNode) node automaticly'
+
 
 
 
