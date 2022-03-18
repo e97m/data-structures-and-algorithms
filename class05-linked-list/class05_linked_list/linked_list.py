@@ -160,7 +160,7 @@ class LinkedList:
                         break
                     current = current.next
                 if check == True: 
-                    return 'This value is not exist in this linked list!'
+                    return 'This value does not exist in this linked list!'
 
 
     def insert_after(self, value, new_value):
@@ -193,7 +193,7 @@ class LinkedList:
                         break
                     current = current.next
                 if check == True:
-                    return 'This value is not exist in this linked list!'
+                    return 'This value does not exist in this linked list!'
                      
 
     def delete_node(self, value):
@@ -222,7 +222,7 @@ class LinkedList:
                     break
                 current = current.next
             if check == True:
-                return 'This value is not exist in this linked list!'
+                return 'This value does not exist in this linked list!'
 
 
     def includes(self, wanted_value):  #O(n)

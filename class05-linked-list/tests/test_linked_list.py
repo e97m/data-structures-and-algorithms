@@ -81,7 +81,7 @@ def test_insert_after_tail(my_ll):
 
 def test_insert_after_something_outside_list(my_ll):
     actual = my_ll.insert_after('111', 'insertion')
-    expected = 'This value is not exist in this linked list!'
+    expected = 'This value does not exist in this linked list!'
     assert actual == expected
 
 def test_insert_after_Node(my_ll):
@@ -109,7 +109,7 @@ def test_insert_before_tail(my_ll):
 
 def test_insert_brfore_something_outside_list(my_ll):
     actual = my_ll.insert_before('111', 'insertion')
-    expected = 'This value is not exist in this linked list!'
+    expected = 'This value does not exist in this linked list!'
     assert actual == expected
 
 def test_insert_before_Node(my_ll):
@@ -191,7 +191,7 @@ def test_delete_tail(my_ll):
 
 def test_delete_something_outside_list(my_ll):
     actual = my_ll.delete_node('111')
-    expected = 'This value is not exist in this linked list!'
+    expected = 'This value does not exist in this linked list!'
     assert actual == expected
 
 def test_find_mid_odd(my_ll):
