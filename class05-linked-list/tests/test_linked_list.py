@@ -26,6 +26,14 @@ def test_insert_two():
     expected = '{ Anas } -> { Emad } -> NULL'
     assert actual == expected
 
+def test_insert_var():
+    ll = LinkedList()
+    emad = 'Emad'
+    ll.insert(emad)
+    actual = str(ll)
+    expected = '{ Emad } -> NULL'
+    assert actual == expected  
+
 def test_includes_head(my_ll):
     actual = my_ll.includes('Yazan')
     expected = True
@@ -105,6 +113,18 @@ def test_insert_before_tail(my_ll):
     my_ll.insert_before('Emad', 'before tail')
     actual = str(my_ll)
     expected = '{ Yazan } -> { Anas } -> { before tail } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_before_True(my_ll):
+    my_ll.insert_before('Emad', True)
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> { True } -> { Emad } -> NULL'
+    assert actual == expected
+
+def test_insert_before_False(my_ll):
+    my_ll.insert_before('Emad', False)
+    actual = str(my_ll)
+    expected = '{ Yazan } -> { Anas } -> { False } -> { Emad } -> NULL'
     assert actual == expected
 
 def test_insert_brfore_something_outside_list(my_ll):
