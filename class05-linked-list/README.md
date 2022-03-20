@@ -2,9 +2,9 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 16/03/2022
+**Date:** 20/03/2022
 
-**Application Vesrsion:** 0.3.0
+**Application Vesrsion:** 0.4.0
 
 **Python Verstion:** 3.9.5
 
