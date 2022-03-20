@@ -356,27 +356,63 @@ class DoublyLinkedList:
         return  output 
 
 
+def merge_liked_list(l_list_1, l_list_2):
+    '''
+    A function to merge two linked lists
+    input: linked list 1, linked list 2
+    ex: LL1 = A, B, C // LL2 = 1, 2, 3 ==> A, 1, B, 2, C, 3
+    '''
+    try:
+        if not isinstance(l_list_1, LinkedList) or not isinstance(l_list_2, LinkedList):
+            raise TypeError
+    except TypeError:
+        return 'Please make sure that the entered data type is LinkedList for both arguments'
+    else:
+        current1 = l_list_1.head
+        current2 = l_list_2.head
+        if l_list_1.head is None and l_list_2.head is not None:
+            return l_list_2
+        if l_list_2.head is None and l_list_1.head is not None:
+            return l_list_1
+        if l_list_1.head is None and l_list_2.head is None:
+            return 'The linked-lists are empty'
+        while current1 is not None or current2 is not None:
+            new_next1 = current1.next
+            current1.next = current2
+            new_next2 = current2.next
+            if new_next1 is None:
+                current1 = new_next1
+                current2= new_next2
+                return l_list_1
+            if new_next2 is None:
+                current2.next = new_next1
+                return l_list_1
+            current2.next = new_next1
+            current1 = new_next1
+            current2= new_next2
+        return l_list_1
 
 
 if __name__ == '__main__':
-    ll = LinkedList()
-    # print(emad = Node('Emad'))     # exampile of a node
-    emad = "Emad"
 
-    ll.append(emad)
-    ll.append('Anas')
-    ll.append('test')
-    ll.insert(1)
-    ll.insert('Yazan')
-    ll.insert_after('Emad', 'after emad')
-    ll.insert_before('Emad', 'before emad')
-    ll.insert_before('Yazan', 'the head')
-    ll.insert_before('test', 'the end')
-    ll.delete_node('Emad')
-    ll.delete_node('the head')
-    ll.delete_node('test')
-    ll.insert_before('Yazan', True)
-    ll.delete_node(True)
+    # ll = LinkedList()
+    # print(emad = Node('Emad'))     # exampile of a node
+    # emad = "Emad"
+
+    # ll.append(emad)
+    # ll.append('Anas')
+    # ll.append('test')
+    # ll.insert(1)
+    # ll.insert('Yazan')
+    # ll.insert_after('Emad', 'after emad')
+    # ll.insert_before('Emad', 'before emad')
+    # ll.insert_before('Yazan', 'the head')
+    # ll.insert_before('test', 'the end')
+    # ll.delete_node('Emad')
+    # ll.delete_node('the head')
+    # ll.delete_node('test')
+    # ll.insert_before('Yazan', True)
+    # ll.delete_node(True)
 
 
     # print(ll.insert( Node('ttttttttttttt')))
@@ -386,14 +422,26 @@ if __name__ == '__main__':
     # print(ll.insert_before('111', Node('the')))
     # print(ll.insert_after('111', 'after'))
 
-    print(ll)
-
     # print(ll.includes('Emad'))
     # print(ll.includes('An'))
 
     # dll = DoublyLinkedList()
     # dll.insert('this is an easy insert')
-    # print(dll)
 
     # print (ll.kth_from_end(10))
-    print(ll.find_mid())
+    # print(dll)
+    # print(ll.find_mid())
+
+    my_l_list_1 = LinkedList()
+    # my_l_list_1.insert('D')
+    # my_l_list_1.insert('C')
+    my_l_list_1.insert('B')
+    my_l_list_1.insert('A')
+
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('4')
+    my_l_list_2.insert('3')
+    my_l_list_2.insert('2')
+    my_l_list_2.insert('1')
+
+    print(merge_liked_list(my_l_list_1, my_l_list_2))

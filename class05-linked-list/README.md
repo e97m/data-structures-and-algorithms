@@ -14,29 +14,31 @@ This application creates a linked list, which is a list of nodes, each node has 
 
 Singly linked list has three methods:
 
-- `insert`: to add a node to the head of the linked list. The time complexity of it is O(1)
+- `insert`: to add a node to the head of the linked list. The time complexity of it is O(1).
 
-- `append`: to add a node to the end of the linked list. The time complexity of it is O(n)
+- `append`: to add a node to the end of the linked list. The time complexity of it is O(n).
 
-- `includes`: to search for a node's value in the linked list. The time complexity of it is O(n)
+- `includes`: to search for a node's value in the linked list. The time complexity of it is O(n).
 
-- `insert_after`: to add a node after a specific node. The time complexity of it is O(n)
+- `insert_after`: to add a node after a specific node. The time complexity of it is O(n).
 
-- `insert_before`: to add a node before a specific node. The time complexity of it is O(n)
+- `insert_before`: to add a node before a specific node. The time complexity of it is O(n).
 
-- `insert_after`: to remove a node from the linked list. The time complexity of it is O(n)
+- `insert_after`: to remove a node from the linked list. The time complexity of it is O(n).
 
-- `kth_from_end`: A method to return the value of an index from the tail of the linked list
+- `kth_from_end`: A method to return the value of an index from the tail of the linked list.
 
-- `find_mid`: A method to find the middle node in the linked list
+- `find_mid`: A method to find the middle node in the linked list.
 
-- `length`:  A method to canculate the length of the linked list
+- `length`:  A method to canculate the length of the linked list.
 
-- `index`: A method to (create/over write) an index for each node then append them to a list
+- `index`: A method to (create/over write) an index for each node then append them to a list.
 
 - `index_reversed`: A method to (create/over write) a reversed index for each node then append them to a list
 
- Doubly linked list has one method, which is `insert` to add a node to the head of the linked list. The time complexity of it is O(1)
+ Doubly linked list has one method, which is `insert` to add a node to the head of the linked list. The time complexity of it is O(1).
+
+ You can merge two singly liked lists by `merge_linked_list` function. time complexity is O(n), space complexity is O(1).
 
  <br>
 
@@ -70,6 +72,12 @@ Singly linked list has three methods:
 
 <br>
 
+## merge_linked_list
+
+![merge_linked_list whiteboard](./imgs/L-merge.png)
+
+<br>
+
 # Github
 
 PR: https://github.com/e97m/data-structures-and-algorithms/pull/11
@@ -91,3 +99,7 @@ PR: https://github.com/e97m/data-structures-and-algorithms/pull/11
 - [x] Create kth_from_end method
 - [x] Create find_mid method
 - [x] Update the test file
+- [x] Create merge_linked_list function
+- [x] Update the test file
+- [x] Create the whiteboard
+- [x] Update the readme file
