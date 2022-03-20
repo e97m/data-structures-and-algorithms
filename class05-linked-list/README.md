@@ -80,7 +80,7 @@ Singly linked list has three methods:
 
 # Github
 
-PR: https://github.com/e97m/data-structures-and-algorithms/pull/11
+PR: https://github.com/e97m/data-structures-and-algorithms/pull/15
 
 - [x] Create a singly node class
 - [x] Create a singly linked list class
