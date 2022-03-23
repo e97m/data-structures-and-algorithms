@@ -23,7 +23,15 @@ class LinkedList:
         self.head = None
 
 
-    def length(self):
+    # def length(self):
+    #     counter = 0
+    #     current = self.head
+    #     while current is not None:
+    #         counter += 1
+    #         current = current.next
+    #     return counter
+
+    def __len__(self):
         '''
         A method to canculate the length of the linked list
         Input: nothing
@@ -34,7 +42,7 @@ class LinkedList:
         while current is not None:
             counter += 1
             current = current.next
-        return counter
+        return counter 
 
 
     def index(self):
@@ -72,12 +80,11 @@ class LinkedList:
         except ValueError:
             return 'The linked-list is empty'
         else:
-            length = self.length()
             list_of_index = []
             counter = 1
             current = self.head
             while current is not None:
-                current.index = length - counter
+                current.index = len(self) - counter # __len__ is defined in this class
                 list_of_index.append(current.index)
                 counter += 1
                 current = current.next
@@ -395,24 +402,24 @@ def merge_liked_list(l_list_1, l_list_2):
 
 if __name__ == '__main__':
 
-    # ll = LinkedList()
+    ll = LinkedList()
     # print(emad = Node('Emad'))     # exampile of a node
-    # emad = "Emad"
+    emad = "Emad"
 
-    # ll.append(emad)
-    # ll.append('Anas')
-    # ll.append('test')
-    # ll.insert(1)
-    # ll.insert('Yazan')
-    # ll.insert_after('Emad', 'after emad')
-    # ll.insert_before('Emad', 'before emad')
-    # ll.insert_before('Yazan', 'the head')
-    # ll.insert_before('test', 'the end')
-    # ll.delete_node('Emad')
-    # ll.delete_node('the head')
-    # ll.delete_node('test')
-    # ll.insert_before('Yazan', True)
-    # ll.delete_node(True)
+    ll.append(emad)
+    ll.append('Anas')
+    ll.append('test')
+    ll.insert(1)
+    ll.insert('Yazan')
+    ll.insert_after('Emad', 'after emad')
+    ll.insert_before('Emad', 'before emad')
+    ll.insert_before('Yazan', 'the head')
+    ll.insert_before('test', 'the end')
+    ll.delete_node('Emad')
+    ll.delete_node('the head')
+    ll.delete_node('test')
+    ll.insert_before('Yazan', True)
+    ll.delete_node(True)
 
 
     # print(ll.insert( Node('ttttttttttttt')))
@@ -425,10 +432,16 @@ if __name__ == '__main__':
     # print(ll.includes('Emad'))
     # print(ll.includes('An'))
 
+    # print (ll.kth_from_end(10))
+
+    print(ll)
+    print(len(ll))
+    print(ll.length())
+
     # dll = DoublyLinkedList()
     # dll.insert('this is an easy insert')
 
-    # print (ll.kth_from_end(10))
+    
     # print(dll)
     # print(ll.find_mid())
 
