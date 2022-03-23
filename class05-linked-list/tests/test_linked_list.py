@@ -1,4 +1,4 @@
-from class05_linked_list.linked_list import Node, LinkedList, DNode, DoublyLinkedList
+from class05_linked_list.linked_list import Node, LinkedList, DNode, DoublyLinkedList, merge_liked_list
 import pytest
 
 def test_empty():
@@ -157,6 +157,90 @@ def test_kth_from_end_empty():
     actual = ll.kth_from_end(1)
     expected = 'The linked-list is empty'
     assert actual == expected
+
+
+
+
+def test_merge_liked_list():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('B')
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('2')
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = '{ A } -> { 1 } -> { B } -> { 2 } -> NULL'
+    assert actual == expected
+
+def test_merge_liked_list_first_longer():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('D')
+    my_l_list_1.insert('C')
+    my_l_list_1.insert('B')
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('2')
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = '{ A } -> { 1 } -> { B } -> { 2 } -> { C } -> { D } -> NULL'
+    assert actual == expected    
+
+def test_merge_liked_list_second_longer():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('B')
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('4')
+    my_l_list_2.insert('3')
+    my_l_list_2.insert('2')
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = '{ A } -> { 1 } -> { B } -> { 2 } -> { 3 } -> { 4 } -> NULL'
+    assert actual == expected    
+
+def test_merge_liked_list_both_empty():
+    my_l_list_1 = LinkedList()
+    my_l_list_2 = LinkedList()
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = 'The linked-lists are empty'
+    assert actual == expected
+
+def test_merge_liked_list_first_empty():
+    my_l_list_1 = LinkedList()
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('2')
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = '{ 1 } -> { 2 } -> NULL'
+    assert actual == expected
+
+def test_merge_liked_list_second_empty():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('B')
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    actual = str(merge_liked_list(my_l_list_1, my_l_list_2))
+    expected = '{ A } -> { B } -> NULL'
+    assert actual == expected
+
+def test_merge_liked_list_type1():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list(my_l_list_1, 1))
+    expected = 'Please make sure that the entered data type is LinkedList for both arguments'
+    assert actual == expected
+
+def test_merge_liked_list_type2():
+    my_l_list_1 = LinkedList()
+    my_l_list_1.insert('A')
+    my_l_list_2 = LinkedList()
+    my_l_list_2.insert('1')
+    actual = str(merge_liked_list('A', my_l_list_2))
+    expected = 'Please make sure that the entered data type is LinkedList for both arguments'
+    assert actual == expected
+
 
 # **************************
 # *        streach         *
