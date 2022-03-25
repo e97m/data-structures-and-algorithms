@@ -30,11 +30,8 @@ Singly linked list has three methods:
 
 - `find_mid`: A method to find the middle node in the linked list.
 
-- `length`:  A method to canculate the length of the linked list.
+- `__len__`:  A method to canculate the length of the linked list.
 
-- `index`: A method to (create/over write) an index for each node then append them to a list.
-
-- `index_reversed`: A method to (create/over write) a reversed index for each node then append them to a list
 
  Doubly linked list has one method, which is `insert` to add a node to the head of the linked list. The time complexity of it is O(1).
 
@@ -80,26 +77,4 @@ Singly linked list has three methods:
 
 # Github
 
-PR: https://github.com/e97m/data-structures-and-algorithms/pull/15
-
-- [x] Create a singly node class
-- [x] Create a singly linked list class
-- [x] Create insert method to the linked list class
-- [x] Create includes method to the linked list class
-- [x] Create to string method (__str__) to the linked list class
-- [x] Handle possible errors
-- [x] Create a doubly node class
-- [x] Create a doubly linked list class
-- [x] Create insert method to the linked list class
-- [x] Create a test file
-- [x] Create (insert before) method to the linked list classes
-- [x] Create (insert after) method to the linked list classes
-- [x] Create (delete) method to the linked list classes
-- [x] Update the test file
-- [x] Create kth_from_end method
-- [x] Create find_mid method
-- [x] Update the test file
-- [x] Create merge_linked_list function
-- [x] Update the test file
-- [x] Create the whiteboard
-- [x] Update the readme file
+PR: https://github.com/e97m/data-structures-and-algorithms/pull/17
