@@ -9,7 +9,7 @@ class Node:
     def __init__(self,value):
         self.value = value
         self.next = None
-        self.index = None
+        # self.index = None
 
 
 class LinkedList:
@@ -68,27 +68,27 @@ class LinkedList:
         return list_of_index
 
 
-    def index_reversed(self):
-        '''
-        A method to (create/over write) a reversed index for each node then append them to a list
-        Input: nothing
-        Output: list of revered indexes
-        '''
-        try:
-            if self.head is None:
-                raise ValueError
-        except ValueError:
-            return 'The linked-list is empty'
-        else:
-            list_of_index = []
-            counter = 1
-            current = self.head
-            while current is not None:
-                current.index = len(self) - counter # __len__ is defined in this class
-                list_of_index.append(current.index)
-                counter += 1
-                current = current.next
-        return list_of_index
+    # def index_reversed(self):
+    #     '''
+    #     A method to (create/over write) a reversed index for each node then append them to a list
+    #     Input: nothing
+    #     Output: list of revered indexes
+    #     '''
+    #     try:
+    #         if self.head is None:
+    #             raise ValueError
+    #     except ValueError:
+    #         return 'The linked-list is empty'
+    #     else:
+    #         list_of_index = []
+    #         counter = 1
+    #         current = self.head
+    #         while current is not None:
+    #             current.index = len(self) - counter # __len__ is defined in this class
+    #             list_of_index.append(current.index)
+    #             counter += 1
+    #             current = current.next
+    #     return list_of_index
 
 
     def append(self, new_value):    # O(n)
@@ -258,18 +258,30 @@ class LinkedList:
         Output: the value of the wanted index
         '''
         try:
-            if self.head is None:
+            if self.head is None :
                 raise ValueError
         except ValueError:
             return 'The linked-list is empty'
         else:
-            self.index_reversed()
-            current = self.head
-            while current is not None:
-                if current.index == k:   
-                    return current.value
-                current = current.next
-            return 'Index not found!'
+            length = len(self)
+            try:
+                if k > length or k < 0:
+                    raise ValueError
+            except ValueError:
+                return 'Index not found!'
+            else:
+                current = self.head
+                for _ in range(1, length - k):
+                    current = current.next
+                return current.value
+            # old solution with index atribute
+            # self.index_reversed()
+            # current = self.head
+            # while current is not None:
+            #     if current.index == k:   
+            #         return current.value
+            #     current = current.next
+            # return 'Index not found!'
 
 
     def find_mid(self):
@@ -284,16 +296,24 @@ class LinkedList:
         except ValueError:
             return 'The linked-list is empty'
         else:
-            length = self.length()
-            self.index()
-            mid_index = (length-1)//2
-
+            mid_element = (len(self)-1)//2
             current = self.head
+            counter = 0
             while current is not None:
-                if current.index == mid_index:
+                if counter == mid_element:
                     return current.value
+                counter += 1
                 current = current.next
+            # old solution with index atribute
+            # self.index()
+            # mid_index = (len(self)-1)//2
 
+            # current = self.head
+            # while current is not None:
+            #     if current.index == mid_index:
+            #         return current.value
+            #     current = current.next
+            
 
     def __str__(self):
         output = ''
@@ -436,7 +456,7 @@ if __name__ == '__main__':
 
     print(ll)
     print(len(ll))
-    print(ll.length())
+    print(len(ll))
 
     # dll = DoublyLinkedList()
     # dll.insert('this is an easy insert')
