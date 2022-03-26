@@ -1,4 +1,7 @@
 
+import re
+
+
 class Node:
     '''
     A class to creat a node to be used in singly linked list
@@ -42,30 +45,30 @@ class LinkedList:
         while current is not None:
             counter += 1
             current = current.next
-        return counter 
+        return counter
 
 
-    def index(self):
-        '''
-        A method to (create/over write) an index for each node then append them to a list
-        Input: nothing
-        Output: list of indexes
-        '''
-        try:
-            if self.head is None:
-                raise ValueError
-        except ValueError:
-            return 'The linked-list is empty'
-        else:
-            list_of_index = []
-            counter = 0
-            current = self.head
-            while current is not None:
-                current.index = counter
-                list_of_index.append(current.index)
-                counter += 1
-                current = current.next
-        return list_of_index
+    # def index(self):
+    #     '''
+    #     A method to (create/over write) an index for each node then append them to a list
+    #     Input: nothing
+    #     Output: list of indexes
+    #     '''
+    #     try:
+    #         if self.head is None:
+    #             raise ValueError
+    #     except ValueError:
+    #         return 'The linked-list is empty'
+    #     else:
+    #         list_of_index = []
+    #         counter = 0
+    #         current = self.head
+    #         while current is not None:
+    #             current.index = counter
+    #             list_of_index.append(current.index)
+    #             counter += 1
+    #             current = current.next
+    #     return list_of_index
 
 
     # def index_reversed(self):
@@ -313,8 +316,55 @@ class LinkedList:
             #     if current.index == mid_index:
             #         return current.value
             #     current = current.next
-            
 
+
+    # not tested in pytest
+    def reverse(self):
+        try:
+            if self.head is None:
+                raise ValueError
+        except ValueError:
+            return 'The linked-list is empty'
+        else:
+            if self.head.next is None:
+                return self.head.value
+            else:
+                counter =0
+                length = len(self)
+                if length == 0:
+                    return 'The linked list is empty!'
+                old_head = self.head
+                for _ in range(length): 
+                    current = old_head
+                    for _ in range(length-1 - counter):
+                        previous = current
+                        current = current.next
+                    if counter == 0:
+                        self.head = current
+                        self.head.next = previous
+                    if counter == length -1:
+                        current.next = None
+                    else:
+                        current.next = previous
+                    counter += 1
+            return self
+    
+
+    # not tested yet
+    def palindrome(self, the_ll):
+        original_ll = the_ll
+        revesed_ll = the_ll.reverse()
+        original_current = original_ll.head
+        reversed_current = revesed_ll.head
+        while original_current is not None:
+            if original_current.value != reversed_current.value:
+                return False
+            else:
+                original_current = original_current.next
+                reversed_current = original_current.next
+        return True
+                            
+                          
     def __str__(self):
         output = ''
         if self.head is None:
@@ -456,7 +506,7 @@ if __name__ == '__main__':
 
     print(ll)
     print(len(ll))
-    print(len(ll))
+    print(ll.reverse())
 
     # dll = DoublyLinkedList()
     # dll.insert('this is an easy insert')
