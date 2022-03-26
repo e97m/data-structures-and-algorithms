@@ -320,6 +320,11 @@ class LinkedList:
 
     # not tested in pytest
     def reverse(self):
+        '''
+        A method to reverse the linked list
+        Input: nothing
+        Output: reversed linked list
+        '''
         try:
             if self.head is None:
                 raise ValueError
@@ -352,6 +357,11 @@ class LinkedList:
 
     # not tested yet
     def palindrome(self, the_ll):
+        '''
+        A method to check if the linked list is symitric or not
+        Input: a linked list
+        Output: boolian (True if it is symitric)
+        '''
         original_ll = the_ll
         revesed_ll = the_ll.reverse()
         original_current = original_ll.head

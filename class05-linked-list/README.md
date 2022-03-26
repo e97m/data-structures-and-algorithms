@@ -32,6 +32,9 @@ Singly linked list has three methods:
 
 - `__len__`:  A method to canculate the length of the linked list.
 
+- `reverse`: A method to reverse the linked list
+
+- `palindrome`: A method to check if the linked list is symitric or not
 
  Doubly linked list has one method, which is `insert` to add a node to the head of the linked list. The time complexity of it is O(1).
 
@@ -71,10 +74,17 @@ Singly linked list has three methods:
 
 ## merge_linked_list
 
-![merge_linked_list whiteboard](./imgs/L-merge.png)
+![merge_linked_list whiteboard](./imgs/LL-merge.png)
+
+<br>
+
+## reverse
+
+![reverse whiteboard](./imgs/LL-reverse.png)
+
 
 <br>
 
 # Github
 
-PR: https://github.com/e97m/data-structures-and-algorithms/pull/17
+PR: https://github.com/e97m/data-structures-and-algorithms/pull/19
