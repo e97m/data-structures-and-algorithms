@@ -27,7 +27,7 @@ class Stack:
         Input: new_value
         '''
         new_node = Node(new_value)
-        new_node.top = self.top
+        new_node.next = self.top
         self.top = new_node
     
 
@@ -36,6 +36,8 @@ class Stack:
         A method to remove a node from the stack
         Input: nothing
         '''
+        if self.is_empty():
+            return 'The stack is empty'
         current = self.top
         self.top = self.top.next
         current.next = None
@@ -62,6 +64,27 @@ class Stack:
         else:
             return False
 
+    def __str__(self):
+        '''
+        A method to print the stack
+        Input: nothing
+        Output: string
+        '''
+        output = ''
+        if self.is_empty():
+            return 'The stack is empty'
+        else:
+            current = self.top
+            while current is not None:
+                if current.next is None:
+                    output += '{ ' f'{current.value}' ' }'
+                    break
+                else:
+                    output += '{ ' f'{current.value}' ' } -> '
+                    current = current.next
+        return  output 
+
+
 
 class Queue:
     '''
@@ -77,7 +100,7 @@ class Queue:
     
     def enqueue(self, new_value):
         '''
-        A method to add a node to the queue
+        A method to add a node to the queue (to the rear)
         Input: new value
         '''
         new_node = Node(new_value)
@@ -89,17 +112,23 @@ class Queue:
             self.rear = new_node
 
 
-    def dequeue(seld):
+    def dequeue(self):
         '''
-        A method to remove a node from the queue
+        A method to remove a node from the queue (from front)
         Input: nothing
         '''
-        
+        if self.is_empty():
+            return 'The queue is empty'
+        else:
+            current = self.front
+            self.front = self.front.next
+            current.next = None
+
 
     
     def peek(self):
         '''
-        A method to show the top of the queue
+        A method to show the front of the queue
         '''
         if self.is_empty():
             return 'The queue is empty'
@@ -113,7 +142,56 @@ class Queue:
         Input: nothing
         Output: boolian (True if the queue is empty)
         '''
-        if self.rear is None:
+        if self.front is None:
             return True
         else:
             return False
+
+    def __str__(self):
+        '''
+        A method to print the queue
+        Input: nothing
+        Output: string
+        '''
+        output = ''
+        if self.is_empty():
+            return 'The queue is empty'
+        else:
+            current = self.front
+            while current is not None:
+                if current.next is None:
+                    output += '{ ' f'{current.value}' ' }'
+                    break
+                else:
+                    output += '{ ' f'{current.value}' ' } -> '
+                    current = current.next
+        return  output
+
+
+
+
+
+if __name__ == '__main__':
+    # Test the stack
+    stack = Stack()
+    print(stack.is_empty())
+    stack.push('A')
+    stack.push('B')
+    stack.push('C')
+    print(stack)
+    stack.pop()
+    print(stack)
+    print(stack.peek())
+    print(stack.is_empty())
+
+    # Test the queue
+    queue = Queue()
+    print(queue.is_empty())
+    queue.enqueue('A')
+    queue.enqueue('B')
+    queue.enqueue('C')
+    print(queue)
+    queue.dequeue()
+    print(queue)
+    print(queue.peek())
+    print(queue.is_empty())
