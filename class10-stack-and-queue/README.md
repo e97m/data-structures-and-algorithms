@@ -2,11 +2,13 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 25/03/2022
+**Date:** 27/03/2022
 
-**Application Vesrsion:** 0.1.0
+**Application Vesrsion:** 0.2.0
 
 **Python Verstion:** 3.9.5
+
+**poetry Vesrsion:** 1.1.13
 
 ## Overview:
 This application creates stacks and queues, and let you modify them.
@@ -31,4 +33,25 @@ Methods for queue in this application:
 
 <br>
 
-## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/20)
+Methods for Pseudo Queue in this application:
+
+- `enqueue`: A method to add a node to the pseudo queue using two stacks
+- `dequeue`:  A method to remove a node from the pseudo queue
+
+<br>
+
+# WhiteBoards
+
+## PseudoQueue enqueue
+
+![PseudoQueue enqueue](./imgs/PseudoQueue-enqueue.png)
+
+<br>
+
+## PseudoQueue dequeue
+
+![PseudoQueue enqueue](./imgs/PseudoQueue-dequeue.png)
+
+<br>
+
+## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/21)
