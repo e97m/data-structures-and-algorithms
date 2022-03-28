@@ -1,12 +1,12 @@
 
-from class10_stack_and_queue.stack_and_queue import Node, Stack, Queue
+from class10_stack_and_queue.stack_and_queue import Node, Stack, Queue, PseudoQueue
 import pytest
 
 def test_push():
     stack = Stack()
     stack.push('A')
     actual = str(stack)
-    expected = '{ A }'
+    expected = '{ A } -> Null'
     assert actual == expected
 
 def test_push_2():
@@ -14,13 +14,13 @@ def test_push_2():
     stack.push('A')
     stack.push('B')
     actual = str(stack)
-    expected = '{ B } -> { A }'
+    expected = '{ B } -> { A } -> Null'
     assert actual == expected
 
 def test_pop(my_stack):
     my_stack.pop()
     actual = str(my_stack)
-    expected = '{ B } -> { A }'
+    expected = '{ B } -> { A } -> Null'
     assert actual == expected
     
 def test_pop_2():
@@ -58,7 +58,7 @@ def test_enqueue():
     queue = Queue()
     queue.enqueue('A')
     actual = str(queue)
-    expected = '{ A }'
+    expected = '{ A } -> Null'
     assert actual == expected
 
 def test_enqueue_2():
@@ -66,13 +66,13 @@ def test_enqueue_2():
     my_queue.enqueue('A')
     my_queue.enqueue('B')
     actual = str(my_queue)
-    expected = '{ A } -> { B }'
+    expected = '{ A } -> { B } -> Null'
     assert actual == expected
 
 def test_dequeue(my_queue):
     my_queue.dequeue()
     actual = str(my_queue)
-    expected = '{ B } -> { C }'
+    expected = '{ B } -> { C } -> Null'
     assert actual == expected
 
 def test_dequeue_2():
@@ -106,7 +106,42 @@ def test_queue_is_empty_2():
     expected = True
     assert actual == expected
 
+def test_pseudo_queue_enqueue():
+    pseudo_queue = PseudoQueue()
+    pseudo_queue.enqueue('A')
+    actual = str(pseudo_queue)
+    expected = '{ A } -> Null'
+    assert actual == expected
 
+def test_pseudo_queue_enqueue_2():
+    pseudo_queue = PseudoQueue()
+    pseudo_queue.enqueue('A')
+    pseudo_queue.enqueue('B')
+    pseudo_queue.enqueue('C')
+    actual = str(pseudo_queue)
+    expected = '{ A } -> { B } -> { C } -> Null'
+    assert actual == expected
+
+def test_pseudo_queue_dequeue(my_pseudo_queue):
+    my_pseudo_queue.dequeue()
+    actual = str(my_pseudo_queue)
+    expected = '{ B } -> { C } -> Null'
+    assert actual == expected
+
+def test_pseudo_queue_dequeue_2():
+    my_pseudo_queue = PseudoQueue()
+    my_pseudo_queue.dequeue()
+    actual = str(my_pseudo_queue)
+    expected = 'The queue is empty'
+    assert actual == expected
+
+def test_pseudo_queue_dequeue_3():
+    my_pseudo_queue = PseudoQueue()
+    my_pseudo_queue.enqueue('A')
+    my_pseudo_queue.dequeue()
+    actual = str(my_pseudo_queue)
+    expected = 'The queue is empty'
+    assert actual == expected
 
 
 @pytest.fixture
@@ -124,3 +159,11 @@ def my_queue():
     queue.enqueue('B')
     queue.enqueue('C')
     return queue
+
+@pytest.fixture
+def my_pseudo_queue():
+    pseudo_queue = PseudoQueue()
+    pseudo_queue.enqueue('A')
+    pseudo_queue.enqueue('B')
+    pseudo_queue.enqueue('C')
+    return pseudo_queue
