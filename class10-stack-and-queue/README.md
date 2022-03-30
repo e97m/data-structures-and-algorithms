@@ -2,16 +2,16 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 27/03/2022
+**Date:** 30/03/2022
 
-**Application Vesrsion:** 0.2.0
+**Application Vesrsion:** 0.3.0
 
 **Python Verstion:** 3.9.5
 
 **poetry Vesrsion:** 1.1.13
 
 ## Overview:
-This application creates stacks and queues, and let you modify them.
+This application creates stacks and queues, and let you modify them using stack_and_aueue.py file. And in animal_shelter.py file it ctreats a queue for dos and another for cats, then dequeue the oldest animal if it is requwsted.
 
 <br>
 
@@ -40,6 +40,13 @@ Methods for Pseudo Queue in this application:
 
 <br>
 
+Methods for AnimalShelter:
+
+- `add_animal`: A method to deside where to enqueue the new animal (dog queue or cat queue)
+- `remove_animal`:  A method to deside from where to dequeue the recuested anomal (dog queue or cat queue)
+
+<br>
+
 # WhiteBoards
 
 ## PseudoQueue enqueue
@@ -54,4 +61,10 @@ Methods for Pseudo Queue in this application:
 
 <br>
 
-## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/21)
+## AnimalShelter
+
+![Animal Shelter](./imgs/animal_shelter.png)
+
+<br>
+
+## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/22)

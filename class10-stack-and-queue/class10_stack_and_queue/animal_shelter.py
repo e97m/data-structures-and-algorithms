@@ -11,12 +11,20 @@ class Node:
 
 
 class AnimalShelter:
+    '''
+    A class to creat two queues, one fir dogs and the other for cats
+    '''
     def __init__(self):
         self.cats_queue = AnimalQueue()
         self.dogs_queue = AnimalQueue()
         # self.all_animals_queue = AnimalQueue()
 
+
     def add_animal(self, new_animal):
+        '''
+        A method to deside where to enqueue the new animal (dog queue or cat queue)
+        Input: new animal
+        '''
         if new_animal == 'cat':
             self.cats_queue.enqueue(new_animal)
             # self.all_animals_queue.enqueue(new_animal)
@@ -26,7 +34,12 @@ class AnimalShelter:
         else:
             return 'We only receive dogs and cats'
 
+
     def request_animal(self, pref = None):
+        '''
+        A method to deside from where to dequeue the recuested anomal (dog queue or cat queue)
+        Input: preference
+        '''
         if pref == None:
             # return self.all_animals_queue.dequeue()
             return 'Please enter the animal type as a value (string)'
@@ -36,7 +49,6 @@ class AnimalShelter:
             return self.dogs_queue.dequeue()
         else:
             return 'We only have dogs and cats'
-
 
 
 
@@ -70,13 +82,11 @@ class AnimalQueue:
             else:
                     self.rear.next = new_node
                     self.rear = new_node
-
             
 
     def dequeue(self):
         '''
-        A method to remove the input animal if it was at the peek (front) of the shelter queue
-        Input: type of the animal you prefere (cat/dog)
+        A method to remove the oldest anomal in the queue
         '''
         if self.front is None:
             return 'The shelter queue for this animal type is empty'
@@ -86,8 +96,6 @@ class AnimalQueue:
             current.next = None
             return current.value
             
-
-
 
     def __str__(self):
         '''
