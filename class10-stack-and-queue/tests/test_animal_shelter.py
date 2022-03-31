@@ -1,79 +1,69 @@
-from class10_stack_and_queue.animal_shelter import AnimalShelter
+from class10_stack_and_queue.animal_shelter import AnimalShelter, Node
 import pytest
 
-def test_add_animal():
+def test_enqueue():
     shelter = AnimalShelter()
-    shelter.add_animal('cat')
-    shelter.add_animal('cat')
-    shelter.add_animal('dog')
-    actual = str(shelter.cats_queue)
-    expected = '{ cat } -> { cat } -> Null'
+    shelter.enqueue('cat')
+    shelter.enqueue('cat')
+    shelter.enqueue('dog')
+    actual = str(shelter)
+    expected = '{ cat } -> { cat } -> { dog } -> Null'
     assert actual == expected
-    actual2 = str(shelter.dogs_queue)
-    expected2 = '{ dog } -> Null'
-    assert actual2 == expected2
 
-def test_add_animal_not_dog_cat():
+def test_enqueue_not_dog_cat():
     shelter = AnimalShelter()
-    actual = shelter.add_animal('rabit')
+    actual = shelter.enqueue('rabit')
     expected = 'We only receive dogs and cats'
     assert actual == expected
 
-def test_add_animal_cat1():
+def test_enqueue_Node():
     shelter = AnimalShelter()
-    shelter.add_animal('cat')
-    actual = str(shelter.cats_queue)
-    expected = '{ cat } -> Null'
+    actual = shelter.enqueue(Node('cat'))
+    expected ='Please enter the animal type as a value (string) and it will converted to Node automaticly'
     assert actual == expected
-    actual2 = str(shelter.dogs_queue)
-    expected2 = 'The shelter queue for this animal type is empty'
-    assert actual2 == expected2
+    
 
-def test_add_animal_dog1():
-    shelter = AnimalShelter()
-    shelter.add_animal('dog')
-    actual = str(shelter.dogs_queue)
-    expected = '{ dog } -> Null'
-    assert actual == expected
-    actual2 = str(shelter.cats_queue)
-    expected2 = 'The shelter queue for this animal type is empty'
-    assert actual2 == expected2
 
-def test_request_animal(my_shelter):
-    actual = my_shelter.request_animal('cat')
+
+
+def test_dequeue_front(my_shelter):
+    actual = my_shelter.dequeue('cat')
     expected = 'cat'
     assert actual == expected
-    actual2 = my_shelter.request_animal('dog')
-    expected2 = 'dog'
-    assert actual2 == expected2
+    assert str(my_shelter) == '{ dog } -> { dog } -> { dog } -> { cat } -> Null'
 
-def test_request_animal_from_empty():
+def test_dequeue_middle(my_shelter):
+    actual = my_shelter.dequeue('dog')
+    expected = 'dog'
+    assert actual == expected
+    assert str(my_shelter) == '{ cat } -> { dog } -> { dog } -> { cat } -> Null'
+
+def test_dequeue_from_empty():
     shelter = AnimalShelter()
-    actual = shelter.request_animal('cat')
-    expected = 'The shelter queue for this animal type is empty'
+    actual = shelter.dequeue('cat')
+    expected = 'The shelter queue is empty'
     assert actual == expected
-    actual2 = shelter.request_animal('dog')
-    expected2 = 'The shelter queue for this animal type is empty'
-    assert actual2 == expected2
 
-def test_request_animal_not_dog_cat():
+def test_dequeue_not_dog_cat(my_shelter):
     shelter = AnimalShelter()
-    actual = shelter.request_animal('rabit')
-    expected = 'We only have dogs and cats'
+    actual = my_shelter.dequeue('rabit')
+    expected = 'cat'
     assert actual == expected
+    assert str(my_shelter) == '{ dog } -> { dog } -> { dog } -> { cat } -> Null'
 
-def test_request_animal_no_argument(my_shelter):
-    actual = my_shelter.request_animal()
-    expected = 'Please enter the animal type as a value (string)'
+def test_dequeue_no_argument(my_shelter):
+    actual = my_shelter.dequeue()
+    expected = 'cat'
     assert actual == expected
+    assert str(my_shelter) == '{ dog } -> { dog } -> { dog } -> { cat } -> Null'
 
 
 @pytest.fixture
 def my_shelter():
     shelter = AnimalShelter()
-    shelter.add_animal('cat')
-    shelter.add_animal('dog')
-    shelter.add_animal('dog')
-    shelter.add_animal('dog')
-    shelter.add_animal('cat')
+    shelter.enqueue('cat')
+    shelter.enqueue('dog')
+    shelter.enqueue('dog')
+    shelter.enqueue('dog')
+    shelter.enqueue('cat')
     return shelter

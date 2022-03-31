@@ -15,7 +15,7 @@ This application creates stacks and queues, and let you modify them using stack_
 
 <br>
 
-Methods for stack in this application:
+### Methods for stack in this application:
 
 - `push`: A method to add a node to the stack
 - `pop`: A method to remove a node from the stack
@@ -24,7 +24,7 @@ Methods for stack in this application:
 
 <br>
 
-Methods for queue in this application:
+### Methods for queue in this application:
 
 - `enqueue`: A method to add a node to the queue
 - `dequeue`:  A method to remove a node from the queue
@@ -33,17 +33,17 @@ Methods for queue in this application:
 
 <br>
 
-Methods for Pseudo Queue in this application:
+### Methods for Pseudo Queue in this application:
 
 - `enqueue`: A method to add a node to the pseudo queue using two stacks
 - `dequeue`:  A method to remove a node from the pseudo queue
 
 <br>
 
-Methods for AnimalShelter:
+### Methods for AnimalShelter:
 
-- `add_animal`: A method to deside where to enqueue the new animal (dog queue or cat queue)
-- `remove_animal`:  A method to deside from where to dequeue the recuested anomal (dog queue or cat queue)
+- `enqueue`: A method to add the new animal (dog or cat) as node the shelter queue
+- `dequeue`:  A method to remove the node of an animal (dog or cat according to useres preference) from the shelter queue
 
 <br>
 
