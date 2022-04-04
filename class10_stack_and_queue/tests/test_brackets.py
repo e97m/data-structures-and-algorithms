@@ -26,3 +26,6 @@ def test_brackets_8():
 
 def test_brackets_9():
     assert validate_brackets(')') == False
+
+def test_brackets_10():
+    assert validate_brackets('CodeFellows') == True

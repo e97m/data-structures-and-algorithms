@@ -1,4 +1,4 @@
-from class10_stack_and_queue.stack_and_queue import Stack
+from .stack_and_queue import Stack
 
 def validate_brackets(my_str):
     '''

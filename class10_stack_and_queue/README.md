@@ -2,16 +2,18 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 30/03/2022
+**Date:** 3/4/2022
 
-**Application Vesrsion:** 0.3.0
+**Application Vesrsion:** 0.4.0
 
 **Python Verstion:** 3.9.5
 
 **poetry Vesrsion:** 1.1.13
 
+**pytest verstion:**  7.1.1
+
 ## Overview:
-This application creates stacks and queues, and let you modify them using stack_and_aueue.py file. And in animal_shelter.py file it ctreats a queue for dos and another for cats, then dequeue the oldest animal if it is requwsted.
+This application creates stacks and queues, and let you modify them using stack_and_aueue.py file. And  animal_shelter.py file  ctreats a queue for dos and another for cats, then dequeue the oldest animal if it is requwsted. And brackets.py test brackets in any string.
 
 <br>
 
@@ -47,6 +49,12 @@ This application creates stacks and queues, and let you modify them using stack_
 
 <br>
 
+### Methods for brackets validation:
+
+- `validate_brackets`: A function to validate the brackets in a string
+
+<br>
+
 # WhiteBoards
 
 ## PseudoQueue enqueue
@@ -67,4 +75,10 @@ This application creates stacks and queues, and let you modify them using stack_
 
 <br>
 
-## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/22)
+## Validate Brackets
+
+![Validate Brackets](./imgs/validate_brackets.png)
+
+<br>
+
+## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/23)
