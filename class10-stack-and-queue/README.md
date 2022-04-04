@@ -2,20 +2,20 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 27/03/2022
+**Date:** 30/03/2022
 
-**Application Vesrsion:** 0.2.0
+**Application Vesrsion:** 0.3.0
 
 **Python Verstion:** 3.9.5
 
 **poetry Vesrsion:** 1.1.13
 
 ## Overview:
-This application creates stacks and queues, and let you modify them.
+This application creates stacks and queues, and let you modify them using stack_and_aueue.py file. And in animal_shelter.py file it ctreats a queue for dos and another for cats, then dequeue the oldest animal if it is requwsted.
 
 <br>
 
-Methods for stack in this application:
+### Methods for stack in this application:
 
 - `push`: A method to add a node to the stack
 - `pop`: A method to remove a node from the stack
@@ -24,7 +24,7 @@ Methods for stack in this application:
 
 <br>
 
-Methods for queue in this application:
+### Methods for queue in this application:
 
 - `enqueue`: A method to add a node to the queue
 - `dequeue`:  A method to remove a node from the queue
@@ -33,10 +33,17 @@ Methods for queue in this application:
 
 <br>
 
-Methods for Pseudo Queue in this application:
+### Methods for Pseudo Queue in this application:
 
 - `enqueue`: A method to add a node to the pseudo queue using two stacks
 - `dequeue`:  A method to remove a node from the pseudo queue
+
+<br>
+
+### Methods for AnimalShelter:
+
+- `enqueue`: A method to add the new animal (dog or cat) as node the shelter queue
+- `dequeue`:  A method to remove the node of an animal (dog or cat according to useres preference) from the shelter queue
 
 <br>
 
@@ -54,4 +61,10 @@ Methods for Pseudo Queue in this application:
 
 <br>
 
-## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/21)
+## AnimalShelter
+
+![Animal Shelter](./imgs/animal_shelter.png)
+
+<br>
+
+## [Github PR](https://github.com/e97m/data-structures-and-algorithms/pull/22)

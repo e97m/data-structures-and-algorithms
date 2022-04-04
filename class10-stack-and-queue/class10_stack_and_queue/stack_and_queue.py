@@ -215,10 +215,11 @@ class PseudoQueue():
 
     def convert_top_to_front_rear(self):
         self.front = self.stack2.top
-        temp = self.stack2.top
-        while temp is not None:
-            self.rear = temp
-            temp = temp.next
+        # temp = self.stack2.top
+        # while temp is not None:
+        #     self.rear = temp
+        #     temp = temp.next
+        self.rear = self.stack1.top
 
 
     def __str__(self):
