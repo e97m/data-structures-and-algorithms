@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "class10-stack-and-queue"
+name = "class10_stack_and_queue"
 version = "0.1.0"
 description = ""
 authors = ["e97m <majdalawi97@yahoo.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pytest = "^7.1.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
