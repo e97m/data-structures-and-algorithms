@@ -7,9 +7,9 @@ def duck_duck_goods_queue(string,k):
     output: the last character remaining in the string queue
     '''
     if type(k) is not int or k<1:
-        raise Exception('k must be an integer greater than 0')
+        return 'k must be an integer greater than 0'
     if len(string) == 1:
-        return queue.dequeue()
+        return string
 
     queue= Queue()
 
@@ -26,6 +26,7 @@ def duck_duck_goods_queue(string,k):
 
 if __name__ == '__main__':
     print(duck_duck_goods_queue('abcdefghijklmnopqrstuvwxyz',3))
+    print(duck_duck_goods_queue('a',3))
     print(duck_duck_goods_queue('abcdefghijklmnopqrstuvwxyz',1))
     print(duck_duck_goods_queue('abcdefghijklmnopqrstuvwxyz',0))
     print(duck_duck_goods_queue('abcdefghijklmnopqrstuvwxyz',-1))
