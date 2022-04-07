@@ -44,6 +44,7 @@ class Stack:
         current = self.top
         self.top = self.top.next
         current.next = None
+        return current.value
 
 
     def peek(self):
@@ -66,6 +67,23 @@ class Stack:
             return True
         else:
             return False
+
+    def get_max(self):
+        '''
+        A method to get the max value in the stack
+        Input: nothing
+        Output: the max value in the stack
+        '''
+        if self.is_empty():
+            return 'The stack is empty'
+        else:
+            current = self.top
+            max_value = self.top.value
+            while current is not None:
+                if current.value > max_value and type(current.value) is int:
+                    max_value = current.value
+                current = current.next
+            return max_value
 
     def __str__(self):
         '''
@@ -126,6 +144,7 @@ class Queue:
             current = self.front
             self.front = self.front.next
             current.next = None
+        return current.value
 
 
     
