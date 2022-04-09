@@ -29,4 +29,4 @@ _ `find`: A method to find a node in the tree. O(n)
 
 <br>
 
-[GitHub pull request]()
+[GitHub pull request](https://github.com/e97m/data-structures-and-algorithms/pull/26)
