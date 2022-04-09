@@ -24,11 +24,7 @@ def test_insert():
 
 def test_insert_2():
     tree = BinarySearchTree()
-    tree.insert(5)
-    tree.insert(2)
-    tree.insert(1)
-    tree.insert(3)
-    tree.insert(10)
+    [tree.insert(x) for x in [5,2,1,3,10]]
     assert tree.pre_order() == [5, 2, 1, 3, 10]
 
 def test_insert_TNode():
@@ -91,11 +87,5 @@ def test_post_order_recursive_empty():
 @pytest.fixture
 def my_tree():
     tree = BinarySearchTree()
-    tree.insert(5)
-    tree.insert(2)
-    tree.insert(1)
-    tree.insert(3)
-    tree.insert(10)
-    tree.insert(7)
-    tree.insert(12)
+    [tree.insert(x) for x in [5,2,1,3,10,7,12]]
     return tree
