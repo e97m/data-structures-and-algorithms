@@ -83,6 +83,26 @@ def test_post_order_recursive_empty():
     tree = BinarySearchTree()
     assert tree.post_order_recursive() == 'The tree is empty'
 
+def test_maximum_value():
+    tree = BinaryTree()
+    tree.root = TNode(10)
+    tree.root.left = TNode(12)
+    tree.root.right = TNode(5)
+    tree.root.left.left = TNode(2)
+    tree.root.left.right = TNode(15)
+    assert tree.maximum_value() == 15
+
+def test_maximum_value_empty():
+    tree = BinaryTree()
+    assert tree.maximum_value() == 'The tree is empty'
+
+def test_max_binary_search(my_tree):
+    assert my_tree.max_binary_search() == 12
+
+def test_max_binary_search_empty():
+    tree = BinarySearchTree()
+    assert tree.max_binary_search() == 'The tree is empty'
+
 
 @pytest.fixture
 def my_tree():

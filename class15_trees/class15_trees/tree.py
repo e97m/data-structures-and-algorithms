@@ -204,6 +204,25 @@ class BinaryTree:
                 break
         return values
 
+    
+    def maximum_value(self):
+        """
+        A method to find the max value of a binary tree
+        input: None
+        output: max value
+        """
+        # The max method for binary search tree is in BinarySearchTree class
+
+        all_elements = self.pre_order()
+        # return max(all_elements)  # this is the same as the one below
+        if type(all_elements) != list or all_elements == []: return 'The tree is empty' 
+        max_value = all_elements[0] 
+        for i in all_elements:
+            if i > max_value:
+                max_value = i
+        return max_value
+        
+
 
 class BinarySearchTree(BinaryTree):
     def __init__(self):
@@ -255,7 +274,21 @@ class BinarySearchTree(BinaryTree):
             else:
                 return True
         return False
-    
+
+
+    def max_binary_search(self):
+        """
+        A method to find the max value of a binary search tree
+        input: None
+        output: max value
+        """
+        current = self.root
+        if current is None: return 'The tree is empty'
+        while current.right is not None:
+            current = current.right
+            if current.right is None:
+                return current.value
+                  
 
 # Not working yet, this isn't a task nor a strech goal
     def delete(self, value):
@@ -414,10 +447,10 @@ class KAryTree:
         
 
     # strech goal, not compleated
-    def insert_k(self, new_value, parent_value):
+    def insert_k(self, new_value, k):
         '''
         A method to create a KNode and insert it under a given parent node
-        input: new vlaue, parent value
+        input: new vlaue, maximum number of children
         output: None
         '''
         if type(new_value) is TNode or type(new_value) is Node or type(new_value) is KNode:
@@ -435,16 +468,17 @@ class KAryTree:
 
 if __name__ == '__main__':
 
-    # node1 = TNode(1)
-    # node2 = TNode(2)
-    # node3 = TNode(3)
-    # node4 = TNode(4)
-    # node1.left = node2
-    # node1.right = node3
-    # node3.right = node4
-    # tree = BinaryTree()
-    # tree.root = node1
+    node1 = TNode(1)
+    node2 = TNode(2)
+    node3 = TNode(3)
+    node4 = TNode(4)
+    node1.left = node3
+    node1.right = node2
+    node3.left = node4
+    tree = BinaryTree()
+    tree.root = node1
     # tree.pre_order()
+    # print(tree.maximum_value())
 
     tree2 = BinarySearchTree()
     tree2.insert(5)
@@ -465,7 +499,11 @@ if __name__ == '__main__':
     print(tree2.post_order())
     print(tree2.post_order_recursive())
 
-    print('K Ary Tree')
+
+    print(tree2.maximum_value())
+    print(tree2.max_binary_search())
+   
+
 
     tree3 = KAryTree()
     tree3.root = KNode(5)
@@ -483,6 +521,9 @@ if __name__ == '__main__':
     # tree3.insert_k(12, 10)
     # tree3.insert_k(12, 15)
 
-
     print(tree3.breadthFirst())
 
+
+    tree4 = BinarySearchTree()
+    [tree4.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
+    print(tree4.pre_order())
