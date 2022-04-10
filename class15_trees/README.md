@@ -4,7 +4,7 @@
 
 **Date:** 7/4/2022
 
-**Application Vesrsion:** 0.1.0
+**Application Vesrsion:** 0.2.0
 
 **Python Verstion:** 3.9.5
 
