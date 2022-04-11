@@ -28,6 +28,7 @@ This is an aplication to create and manipullate trees. You can use this applicat
 - `insert`: A method to insert a node to the tree. time O(n), space O(1)
 - `find`: A method to find a node in the tree. time O(n), space O(1)
 - `max_binary_search`:  A method to find the max value of a binary search tree. time O(n), space O(1)
+- `delete_binary_search`: A method to delete a leaf node from the the tree. time O(n), space O(1)
 
 ## Whiteboards
 

@@ -2,6 +2,10 @@ import pytest
 from class15_trees.tree import BinaryTree, BinarySearchTree, TNode
 
 def test_empty():
+    tree = BinaryTree()
+    assert tree.root == None
+
+def test_empty_binary_search():
     tree = BinarySearchTree()
     assert tree.root == None
 

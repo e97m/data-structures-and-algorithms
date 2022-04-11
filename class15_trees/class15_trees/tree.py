@@ -214,13 +214,13 @@ class BinaryTree:
         # The max method for binary search tree is in BinarySearchTree class
 
         all_elements = self.pre_order()
-        # return max(all_elements)  # this is the same as the one below
         if type(all_elements) != list or all_elements == []: return 'The tree is empty' 
-        max_value = all_elements[0] 
-        for i in all_elements:
-            if i > max_value:
-                max_value = i
-        return max_value
+        return max(all_elements)  # this is the same as the one below 
+        # max_value = all_elements[0] 
+        # for i in all_elements:
+        #     if i > max_value:
+        #         max_value = i
+        # return max_value
         
 
 
@@ -290,12 +290,12 @@ class BinarySearchTree(BinaryTree):
                 return current.value
                   
 
-# Not working yet, this isn't a task nor a strech goal
-    def delete(self, value):
+# Not a task nor a strech goal
+    def delete_binary_search(self, value):
         """
-        A method to delete a node in the tree
+        A method to delete a leaf node from the the tree
         input: value
-        output: True if the node is in the tree, False if not
+        output: The deleted value
         """
         if self.root is None:
             return 'The tree is empty'
@@ -313,18 +313,24 @@ class BinarySearchTree(BinaryTree):
                     if current.left is None and current.right is None:
                         if parent.left == current:
                             parent.left = None
-                        else:
+                            return current.value
+                        elif parent.right == current:
                             parent.right = None
+                            return current.value
                     elif current.left is None:
                         if parent.left == current:
-                            parent.left = None
+                            parent.left = current.right
+                            return current.value
                         elif parent.right == current:
                             parent.right = current.right
+                            return current.value
                     elif current.right is None:
                         if parent.left == current:
                             parent.left = current.left
+                            break
                         elif parent.right == current:
-                            parent.right = None
+                            parent.right = current.left
+                            return current.value
 
 
 
@@ -488,7 +494,8 @@ if __name__ == '__main__':
     tree2.insert(10)
     tree2.insert(7)
     tree2.insert(12)
-    # tree2.delete(2)
+    tree2.delete_binary_search(1)
+    tree2.delete_binary_search(2)
 
     print(tree2.pre_order())
     print(tree2.pre_order_recursive())
