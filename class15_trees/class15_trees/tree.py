@@ -464,7 +464,20 @@ class KAryTree:
         if self.root is None:
             self.root = KNode(new_value)
         else:
-            pass
+            current = self.root
+            if len(current.children) < k:
+                current.children.append(KNode(new_value))
+            else:
+                if len(current.children[0].children) < k:
+                    current = current.children[0]
+                    current.children.append(KNode(new_value))
+                elif len(current.children[1].children) < k:
+                    current = current.children[1]
+                    current.children.append(KNode(new_value))
+                elif len(current.children[2].children) < k:
+                    current = current.children[2]
+                    current.children.append(KNode(new_value))
+                    
            
             
 
@@ -513,24 +526,25 @@ if __name__ == '__main__':
 
 
     tree3 = KAryTree()
-    tree3.root = KNode(5)
-    tree3.root.children = KNode(3), KNode(2), KNode(4)
-    tree3.root.children[0].children = KNode(1), KNode(0)
-    tree3.root.children[2].children = KNode(6), KNode(7)
-    # tree3.insert_k(5, None)
-    # tree3.insert_k(2, 5)
-    # tree3.insert_k(10, 5)
-    # tree3.insert_k(1, 5)
-    # tree3.insert_k(1, 2)
-    # tree3.insert_k(3, 2)
-    # tree3.insert_k(4, 2)
-    # tree3.insert_k(7, 10)
-    # tree3.insert_k(12, 10)
-    # tree3.insert_k(12, 15)
+    tree3.insert_k(5, 1)
+    tree3.insert_k(2, 3)
+    tree3.insert_k(10, 3)
+    tree3.insert_k(1, 3)
+    tree3.insert_k(1, 3)
+    tree3.insert_k(3, 3)
+    tree3.insert_k(4, 3)
+    tree3.insert_k(7, 3)
+    tree3.insert_k(12, 3)
+    tree3.insert_k(12, 3)
 
     print(tree3.breadthFirst())
 
+    tree4 = KAryTree()
+    tree4.root = KNode(5)
+    tree4.root.children = KNode(3), KNode(2), KNode(4)
+    tree4.root.children[0].children = KNode(1), KNode(0)
+    tree4.root.children[2].children = KNode(6), KNode(7)
 
-    tree4 = BinarySearchTree()
-    [tree4.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
-    print(tree4.pre_order())
+    tree5 = BinarySearchTree()
+    [tree5.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
+    print(tree5.pre_order())
