@@ -30,6 +30,8 @@ This is an aplication to create and manipullate trees. You can use this applicat
 - `max_binary_search`:  A method to find the max value of a binary search tree. time O(n), space O(1)
 - `delete_binary_search`: A method to delete a leaf node from the the tree. time O(n), space O(1)
 
+### `breadth_first_binary`: A function to traverse the binary-tree elements (breadthFirst). time O(n), space O(n)
+
 ## Whiteboards
 
 ### max, max_binary_search
@@ -38,4 +40,8 @@ This is an aplication to create and manipullate trees. You can use this applicat
 
 <br>
 
-[GitHub pull request](https://github.com/e97m/data-structures-and-algorithms/pull/27)
+![breadth First]()
+
+<br>
+
+[GitHub pull request](https://github.com/e97m/data-structures-and-algorithms/pull/29)

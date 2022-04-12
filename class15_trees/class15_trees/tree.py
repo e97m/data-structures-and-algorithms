@@ -308,7 +308,7 @@ class BinarySearchTree(BinaryTree):
 # Not a task nor a strech goal
     def delete_binary_search(self, value):
         """
-        A method to delete a leaf node from the the tree
+        A method to delete a leaf node from the the tree, or to delete a parent of a leaf only if that parent has only one child
         input: value
         output: The deleted value
         """
@@ -332,6 +332,7 @@ class BinarySearchTree(BinaryTree):
                         elif parent.right == current:
                             parent.right = None
                             return current.value
+                    # The below is to delete a parent of a leaf only if that parent has only one child
                     elif current.left is None:
                         if parent.left == current:
                             parent.left = current.right
@@ -448,7 +449,7 @@ class KAryTree:
         self.root = None
 
 
-    def breadthFirst(self):
+    def breadth_first(self):
         '''
         A method to traverse the k-ary-tree elements (breadthFirst)
         input: None
@@ -493,8 +494,58 @@ class KAryTree:
                     current = current.children[2]
                     current.children.append(KNode(new_value))
                     
-           
-            
+
+
+
+
+
+
+def breadth_first_binary(tree):
+    '''
+    A method to traverse the binary-tree elements (breadthFirst)
+    input: tree
+    output: print a list of the value of each node
+    '''
+    # if type(tree) != 'BinarySearchTree' or type(tree) != 'BinaryTree':
+    #     raise Exception ('Please enter a BinarySearchTree or BinaryTree')
+    current = tree.root
+    if current is None: raise Exception('The tree is empty')
+    values = []
+    queue = Queue()
+    queue.enqueue(current)
+    while not queue.is_empty():
+        current = queue.dequeue()
+        values.append(current.value)
+        if current.left is not None:
+            queue.enqueue(current.left)
+        if current.right is not None:
+            queue.enqueue(current.right)
+    return values
+
+
+# streach goal
+def breadth_first_k(tree):
+    '''
+    A method to traverse the k-ary-tree elements (breadthFirst)
+    input: tree
+    output: print a list of the value of each node
+    '''
+    # if type(tree) != 'BinarySearchTree' or type(tree) != 'BinaryTree':
+    #     raise Exception ('Please enter a BinarySearchTree or BinaryTree')
+    current = tree.root
+    if current is None: raise Exception('The tree is empty')
+    values = []
+    queue = Queue()
+    queue.enqueue(current)
+    while not queue.is_empty():
+        current = queue.dequeue()
+        values.append(current.value)
+        for child in current.children:
+            queue.enqueue(child)
+    return values   
+
+
+     
 
         
 
@@ -533,6 +584,7 @@ if __name__ == '__main__':
     print(tree2.find(15))
     print(tree2.post_order())
     print(tree2.post_order_recursive())
+    print(breadth_first_binary(tree2))
 
 
     print(tree2.maximum_value())
@@ -552,7 +604,10 @@ if __name__ == '__main__':
     tree3.insert_k(12, 3)
     tree3.insert_k(12, 3)
 
-    print(tree3.breadthFirst())
+    print(tree3.breadth_first())
+    print(breadth_first_k(tree3))
+
+
 
     tree4 = KAryTree()
     tree4.root = KNode(5)
