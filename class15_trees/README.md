@@ -21,7 +21,7 @@ This is an aplication to create and manipullate trees. You can use this applicat
 - `pre_order`, `pre_order_recursive`: A method to traverse the tree elements in post-order. time O(n), space O(n)
 - `in_order`, `in_order_recursive`: A method to traverse the tree elements in in-order. time O(n), space O(n)
 - `post_order`, `post_order_recursive`: A method to traverse the tree elements in in-order. time O(n), space O(n)
-- `max`: A method to find the max value of a binary tree. time O(n), space O(n)
+- `maximum_value`: A method to find the max value of a binary tree. time O(n), space O(1)
 
 ### `BinarySearchtree`: A class to manipulate the binary tree. it has the following methods:
 

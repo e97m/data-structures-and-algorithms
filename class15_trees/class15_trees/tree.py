@@ -213,14 +213,29 @@ class BinaryTree:
         """
         # The max method for binary search tree is in BinarySearchTree class
 
-        all_elements = self.pre_order()
-        if type(all_elements) != list or all_elements == []: return 'The tree is empty' 
-        return max(all_elements)  # this is the same as the one below 
-        # max_value = all_elements[0] 
-        # for i in all_elements:
-        #     if i > max_value:
-        #         max_value = i
-        # return max_value
+        # space O(1)
+        current = self.root
+        if current is None: return 'The tree is empty'
+        global _max
+        _max = current.value
+
+        def _walk(current): 
+            global _max
+            _max = current.value if current.value > _max else _max
+            if current.left:
+                _walk(current.left)
+            if current.right:
+                _walk(current.right)
+
+        _walk(current)
+        return _max
+        
+        ## or space O(n)
+        # all_elements = self.pre_order()
+        # if type(all_elements) != list or all_elements == []: return 'The tree is empty' 
+        # return max(all_elements)
+
+
         
 
 
