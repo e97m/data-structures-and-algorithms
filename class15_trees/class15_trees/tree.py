@@ -216,18 +216,18 @@ class BinaryTree:
         # space O(1)
         current = self.root
         if current is None: return 'The tree is empty'
-        
+        global _max # not the best practice, it is better to pass it as an argument in _walk insted
         _max = current.value
 
-        def _walk(current, _max): 
-            
+        def _walk(current):
+            global _max # not the best practice, it is better to pass it as an argument in _walk insted
             _max = current.value if current.value > _max else _max
             if current.left:
-                _walk(current.left, _max)
+                _walk(current.left)
             if current.right:
-                _walk(current.right, _max)
+                _walk(current.right)
 
-        _walk(current, _max)
+        _walk(current)
         return _max
         
         ## or space O(n)
@@ -506,8 +506,9 @@ def breadth_first_binary(tree):
     input: tree
     output: print a list of the value of each node
     '''
-    if not isinstance(tree, BinarySearchTree) or not isinstance(tree, BinaryTree):
-        raise Exception ('Please enter a BinarySearchTree or BinaryTree')
+    if not isinstance(tree, BinarySearchTree):
+        if not isinstance(tree, BinaryTree):
+            raise Exception ('Please enter a BinarySearchTree or BinaryTree')
     current = tree.root
     if current is None: raise Exception('The tree is empty')
     values = []
@@ -530,7 +531,7 @@ def breadth_first_k(tree):
     input: tree
     output: print a list of the value of each node
     '''
-    if not isinstance(tree, BinarySearchTree) or not isinstance(tree, BinaryTree):
+    if not isinstance(tree, KAryTree):
         raise Exception ('Please enter a BinarySearchTree or BinaryTree')
     current = tree.root
     if current is None: raise Exception('The tree is empty')
@@ -564,6 +565,8 @@ if __name__ == '__main__':
     tree.root = node1
     # tree.pre_order()
     # print(tree.maximum_value())
+    print('aaaaaaaaaaaa', isinstance(tree, BinaryTree))
+    print(breadth_first_binary(tree))
 
     tree2 = BinarySearchTree()
     tree2.insert(5)
