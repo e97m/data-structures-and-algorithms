@@ -177,43 +177,45 @@ def  fizz_buzz_tree(k_ary_tree):
         for child in current.children:
             queue.enqueue(child)
 
-    #     count = 1
-    #     new_k_ary_tree = KAryTree()
-    #     for i in value:
-    #         if count == 1:
-    #             new_k_ary_tree.insert_k(i, 1)
-    #         else:
-    #             new_k_ary_tree.insert_k(i, 3)
-    #         count += 1 
+    print(value)
+    count = 1
+    new_k_ary_tree = KAryTree()
+    for i in value:
+        if count == 1:
+            new_k_ary_tree.insert_k(i, 1)
+        else:
+            new_k_ary_tree.insert_k(i, 3)
+        count += 1 
     # print(new_k_ary_tree.breadth_first_k())
-    return value
+    return new_k_ary_tree
 
 
 
 if __name__ == '__main__':
 
     tree = KAryTree()
-    tree.insert_k(5, 1)
-    tree.insert_k(2, 3)
-    tree.insert_k(10, 3)
-    tree.insert_k(1, 3)
-    tree.insert_k(1, 3)
-    tree.insert_k(3, 3)
-    tree.insert_k(4, 3)
-    tree.insert_k(7, 3)
-    tree.insert_k(12, 3)
-    tree.insert_k(15, 3)
+    tree.root = KNode(5)
+    tree.root.children = KNode(3), KNode(2), KNode(4)
+    tree.root.children[0].children = KNode(1), KNode(0)
+    tree.root.children[2].children = KNode(6), KNode(15)
 
     print(tree.breadth_first_k())
-    # print(breadth_first_k(new_k_ary_tree))
-
 
     tree2 = KAryTree()
-    tree2.root = KNode(5)
-    tree2.root.children = KNode(3), KNode(2), KNode(4)
-    tree2.root.children[0].children = KNode(1), KNode(0)
-    tree2.root.children[2].children = KNode(6), KNode(15)
+    tree2.insert_k(5, 1)
+    tree2.insert_k(2, 3)
+    tree2.insert_k(10, 3)
+    tree2.insert_k(1, 3)
+    tree2.insert_k(1, 3)
+    tree2.insert_k(3, 3)
+    tree2.insert_k(4, 3)
+    tree2.insert_k(7, 3)
+    tree2.insert_k(12, 3)
+    tree2.insert_k(15, 3)
 
     print(tree2.breadth_first_k())
-    print(fizz_buzz_tree(tree2))
+    print(fizz_buzz_tree(tree2).breadth_first_k())
+
+
+
 
