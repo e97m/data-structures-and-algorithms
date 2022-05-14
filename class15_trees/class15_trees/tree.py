@@ -151,6 +151,8 @@ class BinaryTree:
     def __init__(self):
         self.root = None
         self.maximum = 0
+        self.sum = 0
+        self.count = 0
     
 
     def pre_order_recursive(self):
@@ -318,6 +320,64 @@ class BinaryTree:
         # return max(all_elements)
 
 
+    def sum_odd_numbers_binary(self):
+        '''
+        A method to find the summation of odd values in a binary tree
+        input: None
+        output: sum of odd values
+        '''
+        current = self.root
+        if current is None: return 'The tree is empty'
+        self.sum = 0
+
+        def _walk(current):
+            if current.value % 2 != 0:
+                self.sum += current.value
+            if current.left:
+                _walk(current.left)
+            if current.right:
+                _walk(current.right)
+
+        _walk(current)
+        return self.sum
+
+
+def fie_folder_check( binary_tree1, binary_tree2):
+    '''
+    A function to check if the number of files and the number of folders are simmiler in two binary trees
+    input: two binary trees
+    output: True or False
+    '''
+    if binary_tree1.root is None or binary_tree2.root is None: return False
+    files = []
+    folders =[]
+    
+    def _walk(current):
+        if current.left:
+            _walk(current.left)
+        if current.right:
+            _walk(current.right)
+        if not current.right and not current.left:              
+            files.append(current.value)
+        else:
+            folders.append(current.value)
+            
+    _walk(binary_tree1.root)
+    tree1_file_count = len(files)
+    tree1_folder_count = len(folders)
+
+    files = []
+    folders =[]
+    _walk(binary_tree2.root)
+    tree2_file_count = len(files)
+    tree2_folder_count = len(folders)
+
+    if tree1_file_count == tree2_file_count and tree1_folder_count == tree2_folder_count:
+        return True
+    return False
+
+
+
         
 
 
@@ -385,7 +445,7 @@ class BinarySearchTree(BinaryTree):
             current = current.right
             if current.right is None:
                 return current.value
-                  
+
 
 # Not a task nor a strech goal
     def delete_binary_search(self, value):
@@ -505,6 +565,10 @@ if __name__ == '__main__':
     print(tree2.max_binary_search())
    
 
-    tree5 = BinarySearchTree()
-    [tree5.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
-    print(tree5.pre_order())
+    tree3 = BinarySearchTree()
+    [tree3.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
+    print(tree3.pre_order())
+
+    print(tree.sum_odd_numbers_binary())
+    print(fie_folder_check(tree,tree2))
+    print(fie_folder_check(tree2,tree2))
