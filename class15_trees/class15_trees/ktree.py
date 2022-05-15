@@ -103,9 +103,9 @@ class KAryTree:
         input: tree
         output: print a list of the value of each node
         '''
-        if not isinstance(tree, KAryTree):
+        if not isinstance(self, KAryTree):
             raise Exception ('Please enter a KAryTree')
-        current = tree.root
+        current = self.root
         if current is None: raise Exception('The tree is empty')
         values = []
         queue = Queue()
@@ -134,60 +134,55 @@ class KAryTree:
             if len(current.children) < k:
                 current.children.append(KNode(new_value))
             else:
-                if len(current.children[0].children) < k:
-                    current = current.children[0]
-                    current.children.append(KNode(new_value))
-                elif len(current.children[1].children) < k:
-                    current = current.children[1]
-                    current.children.append(KNode(new_value))
-                elif len(current.children[2].children) < k:
-                    current = current.children[2]
-                    current.children.append(KNode(new_value))
-                    
+                for i in range(1000):
+                    if len(current.children[i].children) < k:
+                        current = current.children[i]
+                        current.children.append(KNode(new_value))
+                        break     
 
+        # not compleated
+    def  fizz_buzz_tree(self):
+        '''
+        A method to traverse the k-ary-tree elements (breadthFirst) then return a tree has the value:
+            Fizz if it divisible by 3
+            Buzz if it divisible by 5
+            FizzBuzz if it divisible by 3 and 5
+        input: k_tree
+        output: FizzBuzz K-tree
+        '''
+        if not isinstance(self, KAryTree):
+            raise Exception ('Please enter a KAryTree')
+        current = self.root
+        if current is None: raise Exception('The tree is empty')
+        value = []
+        queue = Queue()
+        queue.enqueue(current)
+        while not queue.is_empty():
+            current = queue.dequeue()
+            if current.value %3 == 0 and current.value %5 ==0:
+                value.append('FizzBuzz')
+            elif current.value %3 == 0:
+                value.append('Fizz')
+            elif current.value %5 == 0:
+                value.append('Buzz')
+            else:
+                value.append(f'{current.value}')
 
-# not compleated
-def  fizz_buzz_tree(k_ary_tree):
-    '''
-    A method to traverse the k-ary-tree elements (breadthFirst) then return a tree has the value:
-        Fizz if it divisible by 3
-        Buzz if it divisible by 5
-        FizzBuzz if it divisible by 3 and 5
-    input: k_tree
-    output: FizzBuzz K-tree
-    '''
-    if not isinstance(k_ary_tree, KAryTree):
-        raise Exception ('Please enter a KAryTree')
-    current = k_ary_tree.root
-    if current is None: raise Exception('The tree is empty')
-    value = []
-    queue = Queue()
-    queue.enqueue(current)
-    while not queue.is_empty():
-        current = queue.dequeue()
-        if current.value %3 == 0 and current.value %5 ==0:
-            value.append('FizzBuzz')
-        elif current.value %3 == 0:
-            value.append('Fizz')
-        elif current.value %5 == 0:
-            value.append('Buzz')
-        else:
-            value.append(f'{current.value}')
+            max_k = len(self.root.children)
+            for child in current.children:
+                if len(current.children) > max_k:
+                    max_k = len(current.children)
+                queue.enqueue(child)
 
-        for child in current.children:
-            queue.enqueue(child)
-
-    print(value)
-    count = 1
-    new_k_ary_tree = KAryTree()
-    for i in value:
-        if count == 1:
-            new_k_ary_tree.insert_k(i, 1)
-        else:
-            new_k_ary_tree.insert_k(i, 3)
-        count += 1 
-    # print(new_k_ary_tree.breadth_first_k())
-    return new_k_ary_tree
+        count = 1
+        new_k_ary_tree = KAryTree()
+        for i in value:
+            if count == 1:
+                new_k_ary_tree.insert_k(i, 1)
+            else:
+                new_k_ary_tree.insert_k(i, max_k)
+            count += 1 
+        return new_k_ary_tree
 
 
 
@@ -199,23 +194,23 @@ if __name__ == '__main__':
     tree.root.children[0].children = KNode(1), KNode(0)
     tree.root.children[2].children = KNode(6), KNode(15)
 
-    print(tree.breadth_first_k())
+    print('tree: ',tree.breadth_first_k())
 
     tree2 = KAryTree()
+    k2=3
     tree2.insert_k(5, 1)
-    tree2.insert_k(2, 3)
-    tree2.insert_k(10, 3)
-    tree2.insert_k(1, 3)
-    tree2.insert_k(1, 3)
-    tree2.insert_k(3, 3)
-    tree2.insert_k(4, 3)
-    tree2.insert_k(7, 3)
-    tree2.insert_k(12, 3)
-    tree2.insert_k(15, 3)
+    tree2.insert_k(2, k2)
+    tree2.insert_k(10, k2)
+    tree2.insert_k(1, k2)
+    tree2.insert_k(1, k2)
+    tree2.insert_k(3, k2)
+    tree2.insert_k(4, k2)
+    tree2.insert_k(7, k2)
+    tree2.insert_k(12, k2)
+    tree2.insert_k(15, k2)
 
-    print(tree2.breadth_first_k())
-    print(fizz_buzz_tree(tree2).breadth_first_k())
-
+    print('tree2:',tree2.breadth_first_k())
+    print('fizzbuzz:',tree2.fizz_buzz_tree().breadth_first_k())
 
 
 

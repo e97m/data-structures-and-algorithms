@@ -1,23 +1,26 @@
 import pytest
-from class15_trees.ktree import  KNode, KAryTree, fizz_buzz_tree
+from class15_trees.ktree import  KNode, KAryTree
 
 
 def test_empty_KAryTree():
     tree = KAryTree()
     assert tree.root == None
 
-def test_KArayTree(my_KT):
-    tree = KAryTree()
-    tree.root = KNode(5)
-    tree.root.children = KNode(3), KNode(2), KNode(4)
-    tree.root.children[0].children = KNode(1), KNode(0)
-    tree.root.children[2].children = KNode(6), KNode(15)
-    # assert my_KT.breadth_first_k() == [5, 3, 2, 4, 1, 0, 6, 15]
+def test_insert_k(my_KT):
+    assert my_KT.breadth_first_k() == [5, 2, 10, 1, 1, 3, 4, 7, 12, 15]
 
 def test_fizz_buzz_tree(my_KT):
-    # assert fizz_buzz_tree(my_KT) == ['Buzz', '2', 'Buzz', '1', '1', 'Fizz', '4', '7', 'Fizz', 'FizzBuzz']
-    pass
+    assert my_KT.fizz_buzz_tree().breadth_first_k() == ['Buzz', '2', 'Buzz', '1', '1', 'Fizz', '4', '7', 'Fizz', 'FizzBuzz']
 
+def test_empty_fizzbuzz():
+    tree = KAryTree()
+    with pytest.raises(Exception):
+        assert tree.fizz_buzz_tree()
+
+def test_fizzbuzz_error():
+    tree = KNode(5)
+    with pytest.raises(Exception):
+        assert tree.fizz_buzz_tree()
 
 
 @pytest.fixture
