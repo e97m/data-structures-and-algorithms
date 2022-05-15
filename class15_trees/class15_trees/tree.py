@@ -344,7 +344,7 @@ class BinaryTree:
 
 def fie_folder_check( binary_tree1, binary_tree2):
     '''
-    A function to check if the number of files and the number of folders are simmiler in two binary trees
+    A method to check if the number of files and the number of folders are simmiler in two binary trees
     input: two binary trees
     output: True or False
     '''

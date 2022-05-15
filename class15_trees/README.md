@@ -20,6 +20,7 @@ This is an aplication to create and manipullate trees. You can use this applicat
 - `in_order`, `in_order_recursive`: A method to traverse the tree elements in in-order. time O(n), space O(n)
 - `post_order`, `post_order_recursive`: A method to traverse the tree elements in in-order. time O(n), space O(n)
 - `maximum_value`: A method to find the max value of a binary tree. time O(n), space O(1)
+-`compare_filse_folders`:  A method to check if the number of files and the number of folders are simmiler in two binary trees. time O(n), space O(n)
 
 ### `BinarySearchtree`: A class to manipulate the binary tree. it has the following methods:
 
@@ -38,8 +39,8 @@ This is an aplication to create and manipullate trees. You can use this applicat
 
 - `breadth_first_k`: A method to traverse the k-ary-tree elements (breadthFirst). time O(n), space O(n)
 - `insert_k`:  A method to create a KNode and insert it under a given parent node. time O(n), space O(1)
+- `fizz_buzz_tree`: A method to traverse the k-ary-tree elements (breadthFirst) then return a tree has the value: Fizz if it divisible by 3, Buzz if it divisible by 5, FizzBuzz if it divisible by 3 and 5. time O(n), space O(n)
 
-### `fizz_buzz_tree`: A method to traverse the k-ary-tree elements (breadthFirst) then return a tree has the value: Fizz if it divisible by 3, Buzz if it divisible by 5, FizzBuzz if it divisible by 3 and 5. time O(n), space O(n)
 
 <br>
 
@@ -59,7 +60,11 @@ This is an aplication to create and manipullate trees. You can use this applicat
 
 ### fizz_buzz_tree
 
-![FizzBuzz]()
+![FizzBuzz](./imgs/fizz_buzz.png)
+
+### compare_files_folders
+
+![Compare Files and Folders](./imgs/compare_files_foldes.png)
 
 <br>
 

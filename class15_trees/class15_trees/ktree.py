@@ -118,7 +118,7 @@ class KAryTree:
         return values   
         
 
-    # not compleated
+    # not compleated, better to change the hardcoded range(1000)
     def insert_k(self, new_value, k):
         '''
         A method to create a KNode and insert it under a given parent node
@@ -138,9 +138,18 @@ class KAryTree:
                     if len(current.children[i].children) < k:
                         current = current.children[i]
                         current.children.append(KNode(new_value))
-                        break     
+                        break    
 
-        # not compleated
+
+    def insert_level_parent():
+        '''
+        A method to insert a node under a parent node at a cirtin level
+        input: new vlaue, parent value, level
+        output: None
+        '''
+        pass 
+
+
     def  fizz_buzz_tree(self):
         '''
         A method to traverse the k-ary-tree elements (breadthFirst) then return a tree has the value:

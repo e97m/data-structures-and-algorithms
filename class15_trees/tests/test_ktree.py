@@ -23,19 +23,10 @@ def test_fizzbuzz_error():
         assert tree.fizz_buzz_tree()
 
 
+
 @pytest.fixture
 def my_KT():
     the_tree = KAryTree()
     the_tree.insert_k(5, 1)
     [the_tree.insert_k(x,3) for x in [2,10,1,1,3, 4, 7,12, 15]]
     return the_tree
-    
-    # tree.insert_k(2, 3)
-    # tree.insert_k(10, 3)
-    # tree.insert_k(1, 3)
-    # tree.insert_k(1, 3)
-    # tree.insert_k(3, 3)
-    # tree.insert_k(4, 3)
-    # tree.insert_k(7, 3)
-    # tree.insert_k(12, 3)
-    # tree.insert_k(15, 3)
