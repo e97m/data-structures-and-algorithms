@@ -56,6 +56,89 @@ class Stack:
             return self.top.value
       
 
+class Queue:
+    '''
+    A class to creat a queue
+    Input: no input
+    constructor: front node, rear node
+    '''
+
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    
+    def enqueue(self, new_value):
+        '''
+        A method to add a node to the queue (to the rear)
+        Input: new value
+        '''
+        if type(new_value) is Node:
+            return 'Please enter a value and it will converted to Node automaticly'
+        else:
+            new_node = Node(new_value)
+        if not self.front:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+
+
+    def dequeue(self):
+        '''
+        A method to remove a node from the queue (from front)
+        Input: nothing
+        '''
+        if self.is_empty():
+            return 'The queue is empty'
+        else:
+            current = self.front
+            self.front = self.front.next
+            current.next = None
+        return current.value
+
+
+    
+    def peek(self):
+        '''
+        A method to show the front of the queue
+        '''
+        if self.is_empty():
+            return 'The queue is empty'
+        else:
+            return self.front.value
+    
+
+    def is_empty(self):
+        '''
+        A method to check if the queue is empty or not
+        Input: nothing
+        Output: boolian (True if the queue is empty)
+        '''
+        if self.front is None:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        '''
+        A method to print the queue
+        Input: nothing
+        Output: string
+        '''
+        output = ''
+        if self.is_empty():
+            return 'The queue is empty'
+        else:
+            current = self.front
+            while current is not None:
+                output += '{ ' f'{current.value}' ' } -> '
+                current = current.next
+            output += 'Null'
+        return  output
+
+
 class TNode:
     def __init__(self,value):
         self.value = value
@@ -68,6 +151,8 @@ class BinaryTree:
     def __init__(self):
         self.root = None
         self.maximum = 0
+        self.sum = 0
+        self.count = 0
     
 
     def pre_order_recursive(self):
@@ -235,6 +320,64 @@ class BinaryTree:
         # return max(all_elements)
 
 
+    def sum_odd_numbers_binary(self):
+        '''
+        A method to find the summation of odd values in a binary tree
+        input: None
+        output: sum of odd values
+        '''
+        current = self.root
+        if current is None: return 'The tree is empty'
+        self.sum = 0
+
+        def _walk(current):
+            if current.value % 2 != 0:
+                self.sum += current.value
+            if current.left:
+                _walk(current.left)
+            if current.right:
+                _walk(current.right)
+
+        _walk(current)
+        return self.sum
+
+
+def fie_folder_check( binary_tree1, binary_tree2):
+    '''
+    A method to check if the number of files and the number of folders are simmiler in two binary trees
+    input: two binary trees
+    output: True or False
+    '''
+    if binary_tree1.root is None or binary_tree2.root is None: return False
+    files = []
+    folders =[]
+    
+    def _walk(current):
+        if current.left:
+            _walk(current.left)
+        if current.right:
+            _walk(current.right)
+        if not current.right and not current.left:              
+            files.append(current.value)
+        else:
+            folders.append(current.value)
+            
+    _walk(binary_tree1.root)
+    tree1_file_count = len(files)
+    tree1_folder_count = len(folders)
+
+    files = []
+    folders =[]
+    _walk(binary_tree2.root)
+    tree2_file_count = len(files)
+    tree2_folder_count = len(folders)
+
+    if tree1_file_count == tree2_file_count and tree1_folder_count == tree2_folder_count:
+        return True
+    return False
+
+
+
         
 
 
@@ -249,7 +392,7 @@ class BinarySearchTree(BinaryTree):
         input: value
         output: None
         """
-        if type(new_value) is TNode or type(new_value) is Node or type(new_value) is KNode:
+        if type(new_value) is TNode or type(new_value) is Node:
             return 'Please enter a value, it will be converted automaticly to TNode'
         if self.root is None:
             self.root = TNode(new_value)
@@ -302,7 +445,7 @@ class BinarySearchTree(BinaryTree):
             current = current.right
             if current.right is None:
                 return current.value
-                  
+
 
 # Not a task nor a strech goal
     def delete_binary_search(self, value):
@@ -348,157 +491,6 @@ class BinarySearchTree(BinaryTree):
                             return current.value
 
 
-
-
-
-
-
-
-class Queue:
-    '''
-    A class to creat a queue
-    Input: no input
-    constructor: front node, rear node
-    '''
-
-    def __init__(self):
-        self.front = None
-        self.rear = None
-
-    
-    def enqueue(self, new_value):
-        '''
-        A method to add a node to the queue (to the rear)
-        Input: new value
-        '''
-        if type(new_value) is Node:
-            return 'Please enter a value and it will converted to Node automaticly'
-        else:
-            new_node = Node(new_value)
-        if not self.front:
-            self.front = new_node
-            self.rear = new_node
-        else:
-            self.rear.next = new_node
-            self.rear = new_node
-
-
-    def dequeue(self):
-        '''
-        A method to remove a node from the queue (from front)
-        Input: nothing
-        '''
-        if self.is_empty():
-            return 'The queue is empty'
-        else:
-            current = self.front
-            self.front = self.front.next
-            current.next = None
-        return current.value
-
-
-    
-    def peek(self):
-        '''
-        A method to show the front of the queue
-        '''
-        if self.is_empty():
-            return 'The queue is empty'
-        else:
-            return self.front.value
-    
-
-    def is_empty(self):
-        '''
-        A method to check if the queue is empty or not
-        Input: nothing
-        Output: boolian (True if the queue is empty)
-        '''
-        if self.front is None:
-            return True
-        else:
-            return False
-
-    def __str__(self):
-        '''
-        A method to print the queue
-        Input: nothing
-        Output: string
-        '''
-        output = ''
-        if self.is_empty():
-            return 'The queue is empty'
-        else:
-            current = self.front
-            while current is not None:
-                output += '{ ' f'{current.value}' ' } -> '
-                current = current.next
-            output += 'Null'
-        return  output
-
-# strech goal
-class KNode:
-    def __init__(self, value):
-        self.value = value
-        self.children = []
-                 
-# strech goal
-class KAryTree:
-    def __init__(self):
-        self.root = None
-
-
-    def breadth_first(self):
-        '''
-        A method to traverse the k-ary-tree elements (breadthFirst)
-        input: None
-        output: print a list of the value of each node
-        '''
-        current = self.root
-        if current is None: return 'The tree is empty'
-        values = []
-        queue = Queue()
-        queue.enqueue(current)
-        while not queue.is_empty():
-            current = queue.dequeue()
-            values.append(current.value)
-            for child in current.children:
-                queue.enqueue(child)
-        return values
-        
-
-    # strech goal, not compleated
-    def insert_k(self, new_value, k):
-        '''
-        A method to create a KNode and insert it under a given parent node
-        input: new vlaue, maximum number of children
-        output: None
-        '''
-        if type(new_value) is TNode or type(new_value) is Node or type(new_value) is KNode:
-            return 'Please enter a value, it will be converted automaticly to TNode'
-        if self.root is None:
-            self.root = KNode(new_value)
-        else:
-            current = self.root
-            if len(current.children) < k:
-                current.children.append(KNode(new_value))
-            else:
-                if len(current.children[0].children) < k:
-                    current = current.children[0]
-                    current.children.append(KNode(new_value))
-                elif len(current.children[1].children) < k:
-                    current = current.children[1]
-                    current.children.append(KNode(new_value))
-                elif len(current.children[2].children) < k:
-                    current = current.children[2]
-                    current.children.append(KNode(new_value))
-                    
-
-
-
-
-
-
 def breadth_first_binary(tree):
     '''
     A method to traverse the binary-tree elements (breadthFirst)
@@ -523,26 +515,6 @@ def breadth_first_binary(tree):
     return values
 
 
-# streach goal
-def breadth_first_k(tree):
-    '''
-    A method to traverse the k-ary-tree elements (breadthFirst)
-    input: tree
-    output: print a list of the value of each node
-    '''
-    if not isinstance(tree, KAryTree):
-        raise Exception ('Please enter a BinarySearchTree or BinaryTree')
-    current = tree.root
-    if current is None: raise Exception('The tree is empty')
-    values = []
-    queue = Queue()
-    queue.enqueue(current)
-    while not queue.is_empty():
-        current = queue.dequeue()
-        values.append(current.value)
-        for child in current.children:
-            queue.enqueue(child)
-    return values   
 
 
      
@@ -589,37 +561,14 @@ if __name__ == '__main__':
     print(tree2.post_order_recursive())
     print(breadth_first_binary(tree2))
 
-
-
-
     print(tree2.maximum_value())
     print(tree2.max_binary_search())
    
 
+    tree3 = BinarySearchTree()
+    [tree3.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
+    print(tree3.pre_order())
 
-    tree3 = KAryTree()
-    tree3.insert_k(5, 1)
-    tree3.insert_k(2, 3)
-    tree3.insert_k(10, 3)
-    tree3.insert_k(1, 3)
-    tree3.insert_k(1, 3)
-    tree3.insert_k(3, 3)
-    tree3.insert_k(4, 3)
-    tree3.insert_k(7, 3)
-    tree3.insert_k(12, 3)
-    tree3.insert_k(12, 3)
-
-    print(tree3.breadth_first())
-    # print(breadth_first_k(tree3))
-
-
-
-    tree4 = KAryTree()
-    tree4.root = KNode(5)
-    tree4.root.children = KNode(3), KNode(2), KNode(4)
-    tree4.root.children[0].children = KNode(1), KNode(0)
-    tree4.root.children[2].children = KNode(6), KNode(7)
-
-    tree5 = BinarySearchTree()
-    [tree5.insert(i) for i in [5,2,1,3,10,7,12, 15, 4]]
-    print(tree5.pre_order())
+    print(tree.sum_odd_numbers_binary())
+    print(fie_folder_check(tree,tree2))
+    print(fie_folder_check(tree2,tree2))
