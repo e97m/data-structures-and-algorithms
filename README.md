@@ -10,3 +10,4 @@ Table of content
 |5,6,7,8,9|[Linked List](class05-linked-list/README.md)|
 |10,11,12,13,14|[Stack and Queue](class10-stack-and-queue/README.md)|
 |15,16,17,18,19|[Trees](class15_trees/README.md)|
+|26|[Insertion Sort](class26-insertion-sort/README.md)|
