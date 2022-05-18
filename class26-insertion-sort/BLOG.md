@@ -75,6 +75,8 @@ The fourth element is smaller than the third element. So the function will swap 
 
 The third element is not smaller than the secound element. So the function will not swap them.
 
+    [4, 8, 15, 16, 23, 42]
+
 ### Result
 
     [4, 8, 15, 16, 23, 42]
@@ -82,4 +84,5 @@ The third element is not smaller than the secound element. So the function will 
 ## Efficency:
 
 Time Complexity: O(n^2): It has a nested loop.
+
 Space Complexity: O(1): No additional space is being created. This array is being sorted in place.

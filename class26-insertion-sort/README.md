@@ -8,7 +8,7 @@ Application Vesrsion: 0.1.0
 
 Overview:
 
-It is an algorithm that used to sort values of the array decinding. To know how this algorrithm works please [read](class26-insertion-sort/BLOG.md) this blog.
+It is an algorithm that used to sort values of the array decinding. To know how this algorrithm works please [read](./README.md) this blog.
 
 ![Insertion Sort](./imgs/insertion_sort.png)
 
