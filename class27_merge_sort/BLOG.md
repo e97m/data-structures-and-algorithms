@@ -1,4 +1,4 @@
-# Insertion Sort
+# Merge Sort
 
 Merge sort is a simple array sorting algorithm. It works by dividing the array into two parts and sorting them recursively. The array is divided into two parts until it is of size 1. Then the two parts are merged. The merge step is done by comparing the first element of each part and inserting the smaller element into the sorted array. The merge step is repeated until the array is sorted.
 
