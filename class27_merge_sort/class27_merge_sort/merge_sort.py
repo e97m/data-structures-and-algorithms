@@ -1,8 +1,8 @@
 def merge_sort(arr):
-    if type(arr) is not list: return 'Please enten an array!'
-    if len(arr) <= 0: return 'Empty array!'
+    if type(arr) is not list: raise Exception ('Please enter an array!')
+    if len(arr) <= 0: raise Exception ('Empty array!')
     for i in arr:
-        if type(i) is not int: return 'Please enter an integer array!'
+        if type(i) is not int: raise Exception ('Please enter an integer array!')
 
     if len(arr) > 1:
         mid = len(arr) // 2

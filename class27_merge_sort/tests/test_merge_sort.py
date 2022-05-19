@@ -1,3 +1,4 @@
+import pytest
 from class27_merge_sort.merge_sort import merge_sort
 
 
@@ -17,23 +18,25 @@ def test_5_odd_num_elements():
     assert merge_sort([2,3,5,7,13]) == [2, 3, 5, 7, 13]
 
 def test_not_array():
-    assert merge_sort('a') == 'Please enten an array!'
+    with pytest.raises(Exception):
+        merge_sort(2)
 
 def test_not_array_2():
-    assert merge_sort(True) == 'Please enten an array!'
-    assert merge_sort(False) == 'Please enten an array!'
+    with pytest.raises(Exception):
+        merge_sort(True)
 
 def test_empty():
-    assert merge_sort([]) == 'Empty array!'
+    with pytest.raises(Exception):
+        merge_sort([])
 
 def test_sting():
-    assert merge_sort([2,'1', 5, 3]) == 'Please enter an integer array!'
+    with pytest.raises(Exception):
+        merge_sort([2,'1', 5, 3])
 
 def test_string_2():
-    assert merge_sort([2,'a', 5, 3]) == 'Please enter an integer array!'
+    with pytest.raises(Exception):
+        merge_sort([2,'a', 5, 3])
 
 def test_boolean():
-    assert merge_sort([2,True, 5, 3]) == 'Please enter an integer array!'
-
-def test_boolean_2():
-    assert merge_sort([2,False, 5, 3]) == 'Please enter an integer array!'
+    with pytest.raises(Exception):
+        merge_sort([2,True, 5, 3])
