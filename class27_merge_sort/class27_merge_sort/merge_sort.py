@@ -1,4 +1,5 @@
 def merge_sort(arr):
+    if type(arr) is not list: return 'Please enten an array!'
     if len(arr) <= 0: return 'Empty array!'
     for i in arr:
         if type(i) is not int: return 'Please enter an integer array!'

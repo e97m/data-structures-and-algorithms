@@ -13,6 +13,16 @@ def test_3():
 def test_4():
     assert merge_sort([2,3,5,7,13,11]) == [2, 3, 5, 7, 11, 13]
 
+def test_5_odd_num_elements():
+    assert merge_sort([2,3,5,7,13]) == [2, 3, 5, 7, 13]
+
+def test_not_array():
+    assert merge_sort('a') == 'Please enten an array!'
+
+def test_not_array_2():
+    assert merge_sort(True) == 'Please enten an array!'
+    assert merge_sort(False) == 'Please enten an array!'
+
 def test_empty():
     assert merge_sort([]) == 'Empty array!'
 
