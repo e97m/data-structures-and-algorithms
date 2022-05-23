@@ -13,5 +13,5 @@ Table of content
 |26|[Insertion Sort](class26-insertion-sort/README.md)|
 |27|[Merge Sort](class27_merge_sort/README.md)
 |28||
-|29||
 |30|[Hash Table](hash_table/README.md)
+|31|[First Repeated Word](/home/emad/.pyenv/shims/python)
