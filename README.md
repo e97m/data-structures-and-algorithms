@@ -12,3 +12,6 @@ Table of content
 |15,16,17,18,19|[Trees](class15_trees/README.md)|
 |26|[Insertion Sort](class26-insertion-sort/README.md)|
 |27|[Merge Sort](class27_merge_sort/README.md)
+|28||
+|29||
+|30|[Hash Table](hash_table/README.md)
