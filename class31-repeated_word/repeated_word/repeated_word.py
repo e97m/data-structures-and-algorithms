@@ -1,4 +1,4 @@
-# from collections import Counter
+from collections import Counter
 import string
 
 
@@ -92,14 +92,17 @@ def all_repeated_words(text):
     Input: string
     Output: string
     '''
+    repeated = []
     text = text.lower() 
     text = text.translate(str.maketrans('', '', string.punctuation))   # remove punctuation
     text = text.split(' ') # split into words
     text_counted = Counter(text) 
     for word in text_counted: 
-        if text_counted[word] > 1: # return the first word appears more than once
-            return word
-    return 'There are no repeated words.'
+        if text_counted[word] > 1: # words appears more than once
+            repeated.append(word) 
+    if len(repeated) <1:
+        return 'There are no repeated words.'
+    return repeated
 
 
 

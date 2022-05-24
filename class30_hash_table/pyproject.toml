@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hash_table"
+name = "class30_hash_table"
 version = "0.1.0"
 description = ""
 authors = ["emad-almajdalawi <majdalawi97@yahoo.com>"]
