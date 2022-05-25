@@ -15,3 +15,4 @@ Table of content
 |28||
 |30|[Hash Table](hash_table/README.md)
 |31|[First Repeated Word](/home/emad/.pyenv/shims/python)
+|32|[Tree Intersection](class32_tree_intersection/README.md)
