@@ -41,10 +41,10 @@ class Stack:
         '''
         if self.is_empty():
             return 'The stack is empty'
-        current = self.top
+        old_top = self.top
         self.top = self.top.next
-        current.next = None
-        return current.value
+        old_top.next = None
+        return old_top.value
 
 
     def peek(self):
@@ -141,10 +141,10 @@ class Queue:
         if self.is_empty():
             return 'The queue is empty'
         else:
-            current = self.front
+            old_front = self.front
             self.front = self.front.next
-            current.next = None
-        return current.value
+            old_front.next = None
+        return old_front.value
 
 
     
@@ -198,7 +198,6 @@ class PseudoQueue():
     def enqueue(self, new_value):
         # enqueue to stack 1
         self.stack1.push(new_value)
-        # dequeue from stack 1 and enqueue to stack 2
         if not self.stack2.is_empty():
             self.stack2 = Stack()
         current = self.stack1.top
@@ -212,11 +211,13 @@ class PseudoQueue():
     def dequeue(self):
         if self.stack2.is_empty():
             return 'The queue is empty'
-        current = self.stack2.top
+        old_top = self.stack2.top
         self.stack2.top = self.stack2.top.next
-        current.next = None
+        old_top.next = None
         
         self.convert_top_to_front_rear()
+        
+        return old_top.value
 
 
 

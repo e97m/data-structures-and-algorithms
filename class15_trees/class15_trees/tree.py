@@ -153,6 +153,7 @@ class BinaryTree:
         self.maximum = 0
         self.sum = 0
         self.count = 0
+        self.arr = []
     
 
     def pre_order_recursive(self):
@@ -178,7 +179,7 @@ class BinaryTree:
 
     def in_order_recursive(self):
         """
-        A method to traverse a tree in pre-order
+        A method to traverse a tree in in-order
         Input: None
         output: print the value of each node
         """
@@ -199,7 +200,7 @@ class BinaryTree:
 
     def post_order_recursive(self):
         """
-        A method to traverse a tree in pre-order
+        A method to traverse a tree in post-order
         Input: None
         output: print the value of each node
         """
@@ -342,7 +343,37 @@ class BinaryTree:
         return self.sum
 
 
-def fie_folder_check( binary_tree1, binary_tree2):
+    def tree_symitrice(self, tree):
+        '''
+        Check if the tree is symitric
+        input: tree
+        output: True or False
+        '''
+        if tree.root is None:
+            raise Exception ('Empty tree!')
+
+        arr = self.arr = [ ]
+        current = tree.root
+        
+        def _walk(current):       # in order, left > root > right
+            if current.left:
+                _walk(current.left)
+            arr.append(current.value) 
+            if current.right:
+                _walk(current.rught)
+        _walk(current)
+        
+        counter = 0
+        for i in len(arr):
+            if arr[i] != arr[i-counter]:
+                    return False
+            count += 1
+        return True
+
+
+
+
+def file_folder_check( binary_tree1, binary_tree2):
     '''
     A method to check if the number of files and the number of folders are simmiler in two binary trees
     input: two binary trees
@@ -378,8 +409,8 @@ def fie_folder_check( binary_tree1, binary_tree2):
 
 
 
-        
 
+        
 
 class BinarySearchTree(BinaryTree):
     def __init__(self):
@@ -399,7 +430,8 @@ class BinarySearchTree(BinaryTree):
         else:
             current = self.root
             while True:
-                if new_value < current.value:
+                if new_value == current.value: return 'value is already exist'
+                elif new_value < current.value:
                     if current.left is None:
                         current.left = TNode(new_value)
                         break
@@ -441,6 +473,7 @@ class BinarySearchTree(BinaryTree):
         """
         current = self.root
         if current is None: return 'The tree is empty'
+        if current.right is None: return current.value
         while current.right is not None:
             current = current.right
             if current.right is None:
@@ -513,6 +546,8 @@ def breadth_first_binary(tree):
         if current.right is not None:
             queue.enqueue(current.right)
     return values
+
+
 
 
 

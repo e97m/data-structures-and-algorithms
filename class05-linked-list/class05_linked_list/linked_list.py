@@ -371,7 +371,7 @@ class LinkedList:
                 return False
             else:
                 original_current = original_current.next
-                reversed_current = original_current.next
+                reversed_current = reversed_current.next
         return True
                             
                           
