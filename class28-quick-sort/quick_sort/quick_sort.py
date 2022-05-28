@@ -1,4 +1,9 @@
 def quick_sort(arr, left, right):
+    if type(arr) is not list: raise Exception ('Please enter an array!')
+    if len(arr) <= 0: raise Exception ('Empty array!')
+    for i in arr:
+        if type(i) is not int: raise Exception ('Please enter an integer array!')
+        
     if left < right:
         position = partition(arr, left, right)
         quick_sort(arr, left, position - 1)
@@ -32,4 +37,4 @@ if __name__ == "__main__":
         ]
 
     for i in matrix:
-        print(quick_sort(i, 0, len(i) - 1))
+        print(quick_sort(i, 0, len(i)-1))

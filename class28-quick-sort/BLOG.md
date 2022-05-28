@@ -41,12 +41,57 @@ ALGORITHM Swap(arr, i, low)
 
 Sample Array:  
 
-    [8, 4, 23, 42, 16, 15]
+    arr = [8, 4, 23, 42, 16, 15]
+
 
 ### step 1:
 
+Choose the last value (15) as pivot, split the array into two parts one grater than the pivot and one less than the pivot.
+
+    less than pivot: 8, 4
+    grater than pivot: 23, 42, 16
+
+### step 2:
+
+Dealing with the less part:
+
+    arr = 8, 4
+
+Choose the last value (4) as pivot, split the array into two parts one grater than the pivot and one less than the pivot.
+
+    less than pivot: None
+    grater than pivot: 8
+    
+
+### step 3:
+
+Dealing with the grater part:
+
+    arr = [23,42,16]
+
+Choose the last value (16) as pivot, split the array into two parts one grater than the pivot and one less than the pivot.
+
+    less than pivot: None
+    grater than pivot: 23, 42
+
+### step 4:
+
+Dealing with the grater part:
+
+    arr = [23, 42]
+
+Choose the last value (42) as pivot, split the array into two parts one grater than the pivot and one less than the pivot.
+
+  less than pivot: 23
+
+
+### Result
+
+    arr = [4, 8, 15, 16, 23, 42]
+
+
 ## Efficency:
 
-Time Complexity: O(n * log n): It has recursion.
+Time Complexity: O(n)
 
-Space Complexity: O(1): It does not use any extra space.
+Space Complexity: O(1)
