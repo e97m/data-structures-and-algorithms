@@ -8,7 +8,7 @@ Application Vesrsion: 0.1.0
 
 Overview:
 
-It is an algorithm that used to find the intersection of two arrays.
+It is an algorithm that used to find the intersection of two arrays usning hash table.
 
 ![Tree Intersection](./imgs/tree_intersection.png)
 

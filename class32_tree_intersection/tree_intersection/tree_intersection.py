@@ -1,3 +1,8 @@
+class Node:
+  def __init__(self, value):
+    self.value = value
+    self.next = None
+
 class TNode:
     def __init__(self,value):
         self.value = value
@@ -32,6 +37,42 @@ class BinaryTree:
         return values
 
 
+class BinarySearchTree(BinaryTree):
+    def __init__(self):
+        super().__init__()
+    
+
+    def insert(self, new_value):
+        """
+        A method to insert a node to the tree
+        input: value
+        output: None
+        """
+        if type(new_value) is TNode or type(new_value) is Node:
+            return 'Please enter a value, it will be converted automaticly to TNode'
+        if self.root is None:
+            self.root = TNode(new_value)
+        else:
+            current = self.root
+            while True:
+                if new_value == current.value: return 'value is already exist'
+                elif new_value < current.value:
+                    if current.left is None:
+                        current.left = TNode(new_value)
+                        break
+                    else:
+                        current = current.left
+                elif new_value > current.value:
+                    if current.right is None:
+                        current.right = TNode(new_value)
+                        break
+                    else:
+                        current = current.right
+                else:
+                    break
+
+
+
 
 class HashTable(object):
     def __init__(self, size=1024):
@@ -45,6 +86,7 @@ class HashTable(object):
         Input: key
         Output: hash value
         """
+        key = str(key)
         sum_of_ascii = 0
         for ch in key:
             ch_ascii = ord(ch)  # 86
@@ -60,7 +102,7 @@ class HashTable(object):
         """
         idx = self.hash(key)
         if not self.table[idx]:
-            self.table[idx] = [[key, value]]  # LinkedList().add({key, value})
+            self.table[idx] = [[key, value]]  # LinkedList().insert({key, value})
         else:
             self.table[idx].append([key, value])
 
@@ -72,9 +114,37 @@ class HashTable(object):
         """
         return self.table[self.hash(key)]
 
+    def contains(self, key):
+        """
+        A method to check if the key is already in the hash table
+        Input: key
+        Output: boolean
+        """
+        if self.get(key) is not None:
+            return True
+        else:
+            return False
 
-# I have to use hash table
+
 def tree_intersection(tree1, tree2):
+    '''
+    A function to append to an array the intersection values of two binary trees.
+    Input: two trees
+    Output: arr of common values
+    '''
+    ht = HashTable()
+    arr1 = tree1.pre_order_recursive()
+    arr2 = tree2.pre_order_recursive()
+    arr3 = []
+    for i in arr1:
+        ht.set(i, 1)
+    for i in arr2:
+        if ht.contains(i):
+            arr3.append(i)
+    return arr3
+
+
+def tree_intersection_arr(tree1, tree2):
     '''
     A function to append to an array the intersection values of two binary trees.
     Input: two trees
@@ -92,12 +162,20 @@ def tree_intersection(tree1, tree2):
 
 if __name__ == '__main__':
 
-    node1 = TNode(1)
-    node2 = TNode(2)
-    node3 = TNode(3)
-    node4 = TNode(4)
-    node1.left = node3
-    node1.right = node2
-    node3.left = node4
-    tree = BinaryTree()
-    tree.root = node1
+    tree1 = BinarySearchTree()
+    tree1.insert(5)
+    tree1.insert(3)
+    tree1.insert(7)
+    tree1.insert(2)
+    tree1.insert(4)
+    tree1.insert(6)
+    tree1.insert(8)
+
+    tree2 = BinarySearchTree()
+    tree2.insert(3)
+    tree2.insert(5)
+    tree2.insert(6)
+    tree2.insert(7)
+    tree2.insert(8)
+
+    print(tree_intersection(tree1, tree2))
