@@ -10,7 +10,6 @@ Overview:
 
 It is an algorithm that used to find the intersection of two arrays usning hash table.
 
-![Tree Intersection](./imgs/tree_intersection.png)
 
 </br>
 
