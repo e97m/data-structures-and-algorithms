@@ -15,3 +15,4 @@ Table of content
 |28||
 |30|[Hash Table](hash_table/README.md)
 |31|[First Repeated Word](/home/emad/.pyenv/shims/python)
+|33|[Hash Table - Left Join](class33-left-join/README.md)
