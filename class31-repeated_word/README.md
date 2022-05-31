@@ -14,4 +14,4 @@ Finds the first repeated word in a string.
 
 ![Repeated Word](repeated_word.png)
 
-[GitHub Pull Request](https://github.com/emad-almajdalawi/data-structures-and-algorithms/pull/34)
+[GitHub Pull Request](https://github.com/emad-almajdalawi/data-structures-and-algorithms/pull/38)
