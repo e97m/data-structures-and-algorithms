@@ -1,5 +1,5 @@
 from collections import Counter
-import string
+import string, re
 
 
 
@@ -67,9 +67,17 @@ def first_repeated_word_hash(text):
     Input: string
     Output: string
     '''
+
+    # lower case all letters
     text = text.lower() 
-    text = text.translate(str.maketrans('', '', string.punctuation))   # remove punctuation
+
+    # remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation)) 
+    # or  
+    re.sub(pattern = "[^\w\s]", repl = "", string = text)
+
     text = text.split(' ') 
+
     ht = HashTable()
     for word in text:
         if ht.contains(word):
