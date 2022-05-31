@@ -77,3 +77,4 @@ if __name__ == '__main__':
 
     print(left_join(left_table, right_table))
     print(left_join_arr(left, right))
+    print(hashmap_left_join(left, right))
