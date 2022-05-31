@@ -9,6 +9,8 @@ def quick_sort(arr, left, right):
         quick_sort(arr, left, position - 1)
         quick_sort(arr, position + 1, right)
 
+    return arr
+
 
 def partition(arr, left, right):
     pivot = arr[right]
@@ -16,7 +18,7 @@ def partition(arr, left, right):
     for i in range(left, right):
         if arr[i] <= pivot:
             low += 1
-            swap = (arr, i, low)
+            swap(arr, i, low)
     swap(arr, right, low + 1)
     return low + 1
 
