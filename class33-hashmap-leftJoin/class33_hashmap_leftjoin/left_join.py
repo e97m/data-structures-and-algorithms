@@ -1,3 +1,4 @@
+from class30_hash_table.hash_table.hashtable import HashTable
 
 def left_join(left_table, right_table):
     """
@@ -42,6 +43,28 @@ def left_join_arr(left_table, right_table):
             new_row.append(new_value)
             new_table.append(new_row)
     return new_table
+
+
+# Mustafa's solution
+def hashmap_left_join(hashmap1, hashmap2):
+    """
+    Arguments: two hash maps
+    Return: left-joind two hash maps
+    """
+    
+    if not isinstance(hashmap1, HashTable) or not isinstance(hashmap2, HashTable):
+        raise Exception("inputs must be hashmaps !")
+    
+    new_hashmap = []
+    
+    for item in hashmap1.map:
+        if item:
+            if hashmap2.contains(item[0][0]):
+                new_hashmap.append([item[0][0], item[0][1], hashmap2.get(item[0][0])[0][1]])
+            else:
+                new_hashmap.append([item[0][0], item[0][1], None])
+                
+    return new_hashmap
 
 
 
