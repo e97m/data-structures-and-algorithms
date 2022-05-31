@@ -41,6 +41,17 @@ class HashTable(object):
         """
         return self.table[self.hash(key)]
 
+    def contains(self, key):
+        """
+        A method to check if the key is already in the hash table
+        Input: key
+        Output: boolean
+        """
+        if self.get(key) is not None:
+            return True
+        else:
+            return False
+
 
     def __str__(self):
             output = ""
@@ -61,7 +72,7 @@ def first_repeated_word_hash(text):
     text = text.split(' ') 
     ht = HashTable()
     for word in text:
-        if ht.get(word):
+        if ht.contains(word):
             return word
         else:
             ht.set(word, 1)
