@@ -1,5 +1,5 @@
 from collections import Counter
-import string
+import string, re
 
 
 
@@ -41,6 +41,50 @@ class HashTable(object):
         """
         return self.table[self.hash(key)]
 
+    def contains(self, key):
+        """
+        A method to check if the key is already in the hash table
+        Input: key
+        Output: boolean
+        """
+        if self.get(key) is not None:
+            return True
+        else:
+            return False
+
+    def keys(self):
+        """
+        A method to retrieve the keys of a hash table
+        Input: nothing
+        Output: list of keys
+        """
+        # return [key[0][0] for key in self.table if key is not None]
+        keys = []
+        for bucket in self.table:
+            if bucket is not None:
+                keys.append(bucket[0][0])
+        return keys
+
+
+    def most_common_key(self):
+        '''Finds the most common key in the table'''
+        most_common = []
+        for bucket in self.table:
+            if bucket is not None:
+                if len(bucket) > len(most_common):
+                    most_common = bucket
+        return most_common[0][0]
+
+
+    def max_count(self):
+        '''Finds the how many times the most common key appears in the table'''
+        max_count = 0
+        for bucket in self.table:
+            if bucket is not None:
+                if len(bucket) > max_count:
+                    max_count = len(bucket)
+        return max_count
+
 
     def __str__(self):
             output = ""
@@ -56,12 +100,21 @@ def first_repeated_word_hash(text):
     Input: string
     Output: string
     '''
+    if text == '': raise Exception('Text is empty')
+
+    # lower case all letters
     text = text.lower() 
-    text = text.translate(str.maketrans('', '', string.punctuation))   # remove punctuation
+
+    # remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    # or  
+    re.sub(pattern = "[^\w\s]", repl = "", string = text)
+
     text = text.split(' ') 
+
     ht = HashTable()
     for word in text:
-        if ht.get(word):
+        if ht.contains(word):
             return word
         else:
             ht.set(word, 1)
@@ -73,6 +126,7 @@ def first_repeated_word_hash(text):
 # Not compleated
 def all_repeated_words_hash(text):
     '''
+    if text == '': raise Exception('Text is empty')
     Finds all repeated words in a string.
     Input: string
     Output: string
@@ -92,6 +146,7 @@ def all_repeated_words(text):
     Input: string
     Output: string
     '''
+    if text == '': raise Exception('Text is empty')
     repeated = []
     text = text.lower() 
     text = text.translate(str.maketrans('', '', string.punctuation))   # remove punctuation
@@ -105,8 +160,51 @@ def all_repeated_words(text):
     return repeated
 
 
+def most_common_word_hash(text):
+    '''
+    Finds the most common word in a string.
+    Input: string
+    Output: string
+    '''
+    if text == '': raise Exception('Text is empty')
+    text = text.lower() 
+    re.sub(pattern = "[^\w\s]", repl = "", string = text)
+    text = text.split(' ')
+    ht = HashTable()
+    counter = 1
+    for word in text:
+        ht.set(word, counter)
+        counter += 1
+    return ht.most_common_key()
+
+
+def most_common_word(text):
+    if text == '': raise Exception('Text is empty')
+    text = text.lower()
+    re.sub(pattern = "[^\w\s]", repl = "", string = text)
+    text = text.split(' ')
+
+    ht = HashTable()
+    counter = 1
+    temp_max = ''
+    temp_max_num = 0
+    for word in text:
+        if ht.contains(word):
+            ht.set(word, int(ht.get(word)[0][1])+1)
+            if ht.get(word)[-1][1] > temp_max_num:
+                temp_max = word
+        else:
+            ht.set(word, counter)
+
+    return temp_max
+        
+            
+
+
 
 
 
 if __name__ == '__main__':
     print(first_repeated_word_hash('Enter a string: this is an example. an apple a day'))
+    print(most_common_word_hash('Enter a string: this is an example. an apple a day'))
+    print(most_common_word('Enter a string: this is an example. an apple a day'))
