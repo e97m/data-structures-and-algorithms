@@ -135,13 +135,15 @@ def tree_intersection(tree1, tree2):
     ht = HashTable()
     arr1 = tree1.pre_order_recursive()
     arr2 = tree2.pre_order_recursive()
-    arr3 = []
+    if len(arr1) == '' or len(arr2) == '':
+        return 'One or both trees is empty'
+    output = []
     for i in arr1:
         ht.set(i, 1)
     for i in arr2:
         if ht.contains(i):
-            arr3.append(i)
-    return arr3
+            output.append(i)
+    return output
 
 
 def tree_intersection_arr(tree1, tree2):

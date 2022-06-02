@@ -10,6 +10,9 @@ Overview:
 
 It is an algorithm that used to find the intersection of two arrays usning hash table.
 
+# WhiteBoard
+
+![tree_intersection](tree_intersection.png)
 
 </br>
 
