@@ -133,14 +133,10 @@ def tree_intersection(tree1, tree2):
     Output: arr of common values
     '''
     ht = HashTable()
-    arr1 = tree1.pre_order_recursive()
-    arr2 = tree2.pre_order_recursive()
-    if len(arr1) == '' or len(arr2) == '':
-        return 'One or both trees is empty'
     output = []
-    for i in arr1:
+    for i in tree1.pre_order_recursive():
         ht.set(i, 1)
-    for i in arr2:
+    for i in tree2.pre_order_recursive():
         if ht.contains(i):
             output.append(i)
     return output
@@ -154,11 +150,11 @@ def tree_intersection_arr(tree1, tree2):
     '''
     arr1 = tree1.pre_order_recursive()
     arr2 = tree2.pre_order_recursive()
-    arr3 = []
+    output = []
     for i in arr1:
         if i in arr2:
-            arr3.append(i)
-    return arr3
+            output.append(i)
+    return output
 
 
 
