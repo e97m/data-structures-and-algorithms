@@ -14,4 +14,6 @@ Table of content
 |27|[Merge Sort](class27_merge_sort/README.md)|
 |28|[Quick Sort](class28-quick-sort/README.md)|
 |30|[Hash Table](hash_table/README.md)
-|31|[Hash Table - First Repeated Word](/home/emad/.pyenv/shims/python)
+|31|[First Repeated Word](/home/emad/.pyenv/shims/python)
+|32|[Tree Intersection](class32_tree_intersection/README.md)
+
