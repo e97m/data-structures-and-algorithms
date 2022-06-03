@@ -51,6 +51,25 @@ class HashTable(object):
         return keys
 
 
+    def most_common_key(self):
+        '''Finds the most common key in the table'''
+        most_common = []
+        for bucket in self.table:
+            if bucket is not None:
+                if len(bucket) > len(most_common):
+                    most_common = bucket
+        return most_common[0][0]
+
+
+    def max_count(self):
+        '''Finds the how many times the most common key appears in the table'''
+        max_count = 0
+        for bucket in self.table:
+            if bucket is not None:
+                if len(bucket) > max_count:
+                    max_count = len(bucket)
+        return max_count
+
 
     def contains(self, key):
         """
@@ -87,6 +106,6 @@ if __name__ == "__main__":
     hashtable.set("name", "Python")
     print(hashtable)
     print('keys',hashtable.keys())
-    print(hashtable.get("cloud"))
+    print('get',hashtable.get("cloud"))
     print(hashtable.contains("cloud"))
     print(hashtable.hash("bucket"))
