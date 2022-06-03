@@ -11,8 +11,13 @@ Table of content
 |10,11,12,13,14|[Stack and Queue](class10-stack-and-queue/README.md)|
 |15,16,17,18,19|[Trees](class15_trees/README.md)|
 |26|[Insertion Sort](class26-insertion-sort/README.md)|
-|27|[Merge Sort](class27_merge_sort/README.md)
-|28||
+|27|[Merge Sort](class27_merge_sort/README.md)|
+|28|[Quick Sort](class28-quick-sort/README.md)|
 |30|[Hash Table](hash_table/README.md)
 |31|[First Repeated Word](/home/emad/.pyenv/shims/python)
+|32|[Tree Intersection](class32_tree_intersection/README.md)
 |33|[Hash Table - Left Join](class33-left-join/README.md)
+
+
+
+
