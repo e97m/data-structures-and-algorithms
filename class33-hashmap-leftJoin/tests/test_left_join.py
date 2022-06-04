@@ -20,7 +20,7 @@ def test_join_empty():
 
 
 def test_left_join_arr(left_arr, right_arr):
-    assert left_join_arr(left_arr, right_arr) == [['a', '1,4'], ['b', '2,5'], ['c', '3,NULL']]
+    assert left_join_arr(left_arr, right_arr) == [['a', '1', '4'], ['b', '2', '5'], ['c', '3', None]]
 
 def test_left_join_arr_emptyLeft(right_arr):
     left_arr = []
@@ -28,7 +28,7 @@ def test_left_join_arr_emptyLeft(right_arr):
 
 def test_left_join_arr_emptyRight(left_arr):
     right_arr = []
-    assert left_join_arr(left_arr, right_arr) == [['a', '1,NULL'], ['b', '2,NULL'], ['c', '3,NULL']]
+    assert left_join_arr(left_arr, right_arr) == [['a', '1', None], ['b', '2', None], ['c', '3', None]]
 
 def test_left_join_arr_empty():
     left_arr = []
