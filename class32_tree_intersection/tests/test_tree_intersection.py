@@ -8,17 +8,19 @@ def test_version():
 
 
 def test_tree_intersection(tree1, tree2):
-    assert tree_intersection(tree1, tree2) == [3, 5, 6, 7, 8]
+    assert tree_insertion_low_space(tree1, tree2) == [3, 5, 6, 7, 8]
 
 
 def test_tree_intersection_one_empty(tree1):
     tree2 = BinarySearchTree()
-    assert tree_intersection(tree1, tree2) == []
+    with pytest.raises(Exception):
+        assert tree_insertion_low_space(tree1, tree2)
 
 def test_tree_intersection_two_empty():
     tree1 = BinarySearchTree()
     tree2 = BinarySearchTree()
-    assert tree_intersection(tree1, tree2) == []
+    with pytest.raises(Exception):
+        assert tree_insertion_low_space(tree1, tree2)
 
 
 @pytest.fixture
