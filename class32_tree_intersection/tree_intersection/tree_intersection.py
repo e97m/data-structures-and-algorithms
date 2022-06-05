@@ -124,7 +124,7 @@ class HashTable(object):
             return False
 
 
-def tree_insertion_low_space(tree1,tree2):
+def tree_intersection(tree1,tree2):
     ht = HashTable()
     output = []
     
@@ -154,7 +154,7 @@ def tree_insertion_low_space(tree1,tree2):
     return output
 
 
-def tree_intersection(tree1, tree2):
+def tree_intersection_arr(tree1, tree2):
     '''
     A function to append to an array the intersection values of two binary trees.
     Input: two trees
@@ -170,7 +170,7 @@ def tree_intersection(tree1, tree2):
     return output
 
 
-def tree_intersection_arr(tree1, tree2):
+def tree_intersection_tripple_arr(tree1, tree2):
     '''
     A function to append to an array the intersection values of two binary trees.
     Input: two trees
@@ -187,7 +187,7 @@ def tree_intersection_arr(tree1, tree2):
 
 
 # Zaid's solution
-def tree_intersection(bt1, bt2):
+def tree_intersection_strict(bt1, bt2):
     """
     Input: two binary trees
     doing: traverse the first tree and store the values in a hashtable
@@ -233,4 +233,4 @@ if __name__ == '__main__':
     tree2.insert(8)
 
     print(tree_intersection(tree1, tree2))
-    print(tree_insertion_low_space(tree1, tree2))
+    print(tree_intersection_arr(tree1, tree2))
