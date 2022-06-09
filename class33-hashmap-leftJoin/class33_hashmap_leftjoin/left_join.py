@@ -2,7 +2,7 @@ from class30_hash_table.hash_table.hashtable import HashTable
 
 def left_join(left_table, right_table):
     """
-    Left join two hashmaps
+    Left join two hashmaps, values are in strings
     Input: two hashmaps
     Output: a list of tuples
     """
@@ -30,17 +30,16 @@ def left_join_arr(left_table, right_table):
     new_table = []
     for row in left_table:
         new_row = []
-        new_value = ''
         if row[0] in right_keys:
             new_row.append(row[0])
             index = right_keys.index(row[0])
-            new_value = row[1] + ',' + right_table[index][1]
-            new_row.append(new_value)
+            new_row.append(row[1])
+            new_row.append(right_table[index][1])
             new_table.append(new_row)
         else:
             new_row.append(row[0])
-            new_value = row[1] + ',' + 'NULL'
-            new_row.append(new_value)
+            new_row.append(row[1])
+            new_row.append(None)
             new_table.append(new_row)
     return new_table
 
