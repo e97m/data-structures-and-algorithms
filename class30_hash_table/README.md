@@ -2,9 +2,9 @@
 
 **Author:** Emad Almajdalawi
 
-**Date:** 21/5/2022
+**Date:** 29/5/2022
 
-**Application Vesrsion:** 0.1.0
+**Application Vesrsion:** 0.4.0
 
 ## Overview:
 
@@ -22,4 +22,20 @@ This application contains the following inside HashTable calss:
 
 <br>
 
-[GitHub pull request](https://github.com/emad-almajdalawi/data-structures-and-algorithms/pull/33)
+The followinig functions are some applications of hashmap:
+
+- `repeated-word`: A function to find the first repeated word in a string.
+
+![Repeated Word](./imgs/repeated_word.png)
+
+- `tree-intersection`: It is an algorithm that used to find the intersection of two arrays usning hash table.
+
+![tree_intersection](./imgs/tree_intersection.png)
+
+- `left-join`: A function that marge two hashmaps into a single data structure based on the left one. Which means it takes the keys from the left hashmap along with this valus and the valuse of the same key in the righ hashmap if the kys exist there. If the key does not exist in the right hashmap, the value is set to `None`.
+
+![Left Join](./imgs/left_join_hashtable.png)
+
+<br>
+
+[GitHub pull request](https://github.com/emad-almajdalawi/data-structures-and-algorithms/pull/40)

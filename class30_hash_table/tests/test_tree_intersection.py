@@ -1,6 +1,6 @@
 from tree_intersection import __version__
 import pytest
-from tree_intersection.tree_intersection import *
+from class30_hash_table.hash_table.tree_intersection import *
 
 
 def test_version():
