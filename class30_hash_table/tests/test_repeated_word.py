@@ -1,4 +1,4 @@
-from repeated_word.repeated_word import first_repeated_word_hash
+from class30_hash_table.hash_table.repeated_word import first_repeated_word_hash
 
 def test_first_repeated_word_hash():
     text = "Once upon a time, there was a brave princess who..."

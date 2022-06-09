@@ -1,5 +1,5 @@
 import pytest
-from class33_hashmap_leftjoin.left_join import left_join, left_join_arr
+from class30_hash_table.hash_table.left_join import left_join, left_join_arr
 
 
 def test_left_join(left_dict, right_dict):
