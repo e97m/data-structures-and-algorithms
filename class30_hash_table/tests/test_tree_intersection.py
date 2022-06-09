@@ -1,10 +1,5 @@
-from tree_intersection import __version__
 import pytest
 from class30_hash_table.hash_table.tree_intersection import *
-
-
-def test_version():
-    assert __version__ == '0.1.0'
 
 
 def test_tree_intersection(tree1, tree2):
