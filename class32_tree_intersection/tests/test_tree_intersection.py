@@ -13,12 +13,14 @@ def test_tree_intersection(tree1, tree2):
 
 def test_tree_intersection_one_empty(tree1):
     tree2 = BinarySearchTree()
-    assert tree_intersection(tree1, tree2) == []
+    with pytest.raises(Exception):
+        assert tree_intersection(tree1, tree2)
 
 def test_tree_intersection_two_empty():
     tree1 = BinarySearchTree()
     tree2 = BinarySearchTree()
-    assert tree_intersection(tree1, tree2) == []
+    with pytest.raises(Exception):
+        assert tree_intersection(tree1, tree2)
 
 
 @pytest.fixture

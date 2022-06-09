@@ -72,8 +72,6 @@ class BinarySearchTree(BinaryTree):
                     break
 
 
-
-
 class HashTable(object):
     def __init__(self, size=1024):
         self.size = size
@@ -126,7 +124,37 @@ class HashTable(object):
             return False
 
 
-def tree_intersection(tree1, tree2):
+def tree_intersection(tree1,tree2):
+    ht = HashTable()
+    output = []
+    
+    def _traverse_and_set(current):
+        ht.set(current.value, 1)
+        if current.left:
+            _traverse_and_set(current.left)
+        if current.right:
+            _traverse_and_set(current.right)
+
+    current = tree1.root
+    if current is None: raise ValueError("One or both trees are empty")
+    _traverse_and_set(current)
+
+    def _traverse_and_check(current):
+        if ht.contains(current.value):
+            output.append(current.value)
+        if current.left:
+            _traverse_and_check(current.left)
+        if current.right:
+            _traverse_and_check(current.right)
+
+    current = tree2.root
+    if current is None: raise ValueError("One or both trees are empty")
+    _traverse_and_check(current)
+
+    return output
+
+
+def tree_intersection_arr(tree1, tree2):
     '''
     A function to append to an array the intersection values of two binary trees.
     Input: two trees
@@ -142,7 +170,7 @@ def tree_intersection(tree1, tree2):
     return output
 
 
-def tree_intersection_arr(tree1, tree2):
+def tree_intersection_tripple_arr(tree1, tree2):
     '''
     A function to append to an array the intersection values of two binary trees.
     Input: two trees
@@ -155,6 +183,34 @@ def tree_intersection_arr(tree1, tree2):
         if i in arr2:
             output.append(i)
     return output
+
+
+
+# Zaid's solution
+def tree_intersection_strict(bt1, bt2):
+    """
+    Input: two binary trees
+    doing: traverse the first tree and store the values in a hashtable
+    output: returns an array of the values, ordered appropriately.
+    """
+    if bt1.root is None or bt2.root is None:
+        raise Exception ("Tree is empty")
+
+    hashtable = HashTable()
+
+    def tree_traversal(root,root2):
+        if root.value == root2.value:
+            hashtable.set(str(root.value), True)
+        if root.left and root2.left:
+            tree_traversal(root.left,root2.left)
+        if root.right and root2.right:
+            tree_traversal(root.right,root2.right)
+
+    tree_traversal(bt1.root,bt2.root)
+    return set(hashtable.keys())
+
+
+
 
 
 
@@ -177,3 +233,4 @@ if __name__ == '__main__':
     tree2.insert(8)
 
     print(tree_intersection(tree1, tree2))
+    print(tree_intersection_arr(tree1, tree2))
