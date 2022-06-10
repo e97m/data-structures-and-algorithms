@@ -255,9 +255,11 @@ class Graph:
 
     def __str__(self):
         '''
-        print the adjacency list of the graoh
+        print the adjacency list of the graph
         '''
-        output = '\n' + 'vertex :  edges \n'
+        if self.adjacency_list == {}:
+            return 'Null'
+        output = 'vertex :  edges \n'
         for key in self.adjacency_list:
             output += f'{key}      :  {self.adjacency_list[key].edges}  \n'
         return  output
@@ -272,11 +274,16 @@ if __name__ == '__main__':
     graph.add_edge(0, '1')
     graph.add_edge(0, 2)
     graph.add_edge('1', 2)
+    # graph.add_edge(2, 0, 5)
     graph.add_edge(2, 0)
     graph.add_edge(2, 3)
     graph.add_edge(3, 3)
     print(graph)
-    print(graph.get_neighbors(2))
-    print(graph.size())
-    print(graph.breadth_first(2))
-    print(graph.depth_first(2))
+    print('get_nodes: ',graph.get_nodes())
+    print('get_neighbors: ',graph.get_neighbors(2))
+    print('size: ',graph.size())
+    print('breadth_first: ',graph.breadth_first(2))
+    print('depth_first: ',graph.depth_first(2))
+
+    graph2 = Graph()
+    print(graph2)
