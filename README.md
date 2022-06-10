@@ -14,5 +14,5 @@ Table of content
 |27|[Merge Sort](class27_merge_sort/README.md)|
 |28|[Quick Sort](class28-quick-sort/README.md)|
 |30,31,32,33|[Hash Table](hash_table/README.md)
-|35|
+|35|[Graphs](class35_graphs/README.md)
 |36|[Random Problem Solving](class36-random-problems/README.md)
