@@ -147,130 +147,131 @@ class Vertex:
 
 
 class Graph:
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
-                      for row in range(vertices)]
+    def __init__(self):
+        self.adjacency_list = {}
 
 
     def add_node(self, value):
         '''
-        Add a node to the graph
+        Add a node (vertex) to the graph
         Input: value
-        output: the added node
+        output: the added node (vertex)
         '''
-        new_node = Vertex(value)
-        return new_node
-
-        # new_vertex = Vertex(value)
-        # self.V += 1
-        # self.graph.append(new_vertex)
-  
+        new_vertex = Vertex(value)
+        self.adjacency_list[value] = new_vertex
+        return new_vertex
 
 
-    def add_edge(self, node1, node2, *wieght):
+    def add_edge(self, vertex1, vertex2, weight=None):
         '''
-        Adds a new edge between two nodes in the graph
-        Input: node1, node2, weight
+        Adds a new edge between two nodes (vertecies) in the graph
+        Input: vertex1, vertex2, weight
         output: nothing
         '''
-        if len(wieght) == 0:
-            self.graph[node1][node2] = 1
-            self.graph[node2][node1] = 1
+        if vertex1 not in self.adjacency_list:
+            self.add_node(vertex1)
+        if vertex2 not in self.adjacency_list:
+            self.add_node(vertex2)
+        if weight is None:
+            self.adjacency_list[vertex1].edges.append(vertex2)
+            self.adjacency_list[vertex2].edges.append(vertex1)
+        else:
+            self.adjacency_list[vertex1].edges.append((vertex2, weight))
+            self.adjacency_list[vertex2].edges.append((vertex1, weight))
 
  
     def get_nodes(self):
         '''
-        Returns all of the nodes in the graph as a collection
+        Returns all of the nodes (verticies) in the graph as a collection
         Input: nothing
-        output: set of nodes
+        output: set of nodes (verticies)
         '''
-        nodes = set()
-        for i in range(self.V):
-            nodes.add(self.graph[i])
-        return nodes
+        verticies = set()
+        for key in self.adjacency_list:
+            verticies.add(key)
+        return verticies
+
 
     
-    def get_neighbors(self, node):
+    def get_neighbors(self, vertex):
         '''
-        Returns a collection of edges connected to the given node including the weight of the connection
-        Input: node
+        Returns a collection of edges connected to the given node (vertex) including the weight of the connection
+        Input: node (vertex)
         output: collection of edges
         '''
-        neighbors = []
-        for i in range(self.V):
-            if self.graph[node][i] == 1:
-                neighbors.append(i)
-        return neighbors
+        return self.adjacency_list[vertex].edges
 
 
     def size(self):
         '''
-        Returns the total number of nodes in the graph
+        Returns the total number of nodes (verticies) in the graph
         Input: nothing
-        output: int (number of nodes)
+        output: int (number of nodes/verticies)
         '''
-        return self.V
+        return len(self.adjacency_list)
 
 
-    def breadth_first(vertex):
+    def breadth_first(self, vertex):
         '''
         Returns a collection of nodes in the graph starting from the given node in breadth first order
         Input: vertex
-        output: collection of nodes
+        output: collection of nodes (verticies)
         '''
-        nodes = []
+        verticies = []
         breadth = Queue()
         visited = set()
         breadth.enqueue(vertex)
         visited.add(vertex)
         while not breadth.is_empty():
             front = breadth.dequeue()
-            nodes.append(front)
-            for child in front.edges:
-                if child not in visited:
-                    visited.add(child)
-                    breadth.enqueue(child)
-        return nodes
+            verticies.append(front)
+            for neighbor in self.get_neighbors(front):
+                if neighbor not in visited:
+                    breadth.enqueue(neighbor)
+                    visited.add(neighbor)
+        return verticies
 
-    
+
     def depth_first(self, vertex):
         '''
         Returns a collection of nodes in the graph starting from the given node in depth first order
         Input: vertex
-        output: collection of nodes
+        output: collection of nodes (verticies)
         '''
-        nodes = []
+        verticies = []
         depth = Stack()
         visited = set()
         depth.push(vertex)
         visited.add(vertex)
         while depth.is_empty() is not True:
             top = depth.pop()
-            nodes.append(top)
-            for child in top.edges:
-                if child not in visited:
-                    visited.add(child)
-                    depth.push(child)
-        return nodes
+            verticies.append(top)
+            for neighbor in self.get_neighbors(top):
+                if neighbor not in visited:
+                    depth.push(neighbor)
+                    visited.add(neighbor)
+        return verticies
 
 
     def __str__(self):
-        output = ''
-        for i in range(self.V):
-            output += f'{self.graph[i]} \n'
-        return output
+        '''
+        print the adjacency list of the graoh
+        '''
+        output = '\n' + 'vertex :  edges \n'
+        for key in self.adjacency_list:
+            output += f'{key}      :  {self.adjacency_list[key].edges}  \n'
+        return  output
 
 
 if __name__ == '__main__':
-    graph = Graph(4)
+    graph = Graph()
     graph.add_node(0)
-    graph.add_node(1)
+    graph.add_node('1')
     graph.add_node(2)
     graph.add_node(3)
-    graph.add_edge(0, 1)
+    graph.add_edge(0, '1')
     graph.add_edge(0, 2)
-    graph.add_edge(1, 2)
+    graph.add_edge('1', 2)
     graph.add_edge(2, 0)
     graph.add_edge(2, 3)
     graph.add_edge(3, 3)
@@ -278,4 +279,4 @@ if __name__ == '__main__':
     print(graph.get_neighbors(2))
     print(graph.size())
     print(graph.breadth_first(2))
-    # print(graph.depth_first(2))
+    print(graph.depth_first(2))
