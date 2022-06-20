@@ -1,5 +1,5 @@
 import pytest
-from class35_graphs.class35_graphs.graphs import Graph, Vertex
+from class35_graphs.graphs import Graph, Vertex
 
 def test_add_node():
     graph = Graph()
